@@ -8,26 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var selectedMenu = 1
+    @State private var selectedDate = Date()
+    
     var body: some View {
-        VStack(spacing: 40) {
-            Text("Seoul")
-                .font(.largeTitle)
-            Image(systemName: "sun.max.fill")
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
-            HStack {
-                Spacer()
-                Text("Max: 27")
-                Spacer()
-                Text("Min: 14")
-                Spacer()
+        VStack(spacing: 30) {
+            Picker(selection: $selectedMenu, label: Text("Picker"), content: {
+                Text("Today").tag(1)
+                    .font(.largeTitle)
+                    .font(.largeTitle)
+                Text("Forecast").tag(2)
+            })
+            .pickerStyle(SegmentedPickerStyle())
+            .frame(width: 250)
+            
+            
+            if selectedMenu == 1 {
+                Text("Seoul")
+                    .font(.largeTitle)
+                Image(systemName: "sun.max.fill")
+                    .renderingMode(.original)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200)
+                HStack(alignment: .center, spacing: 50) {
+                    Text("Max: 27")
+                        .font(.title3)
+                    Text("Min: 14")
+                        .font(.title3)
+                }
+            } else {
+                Text("Forecast Here")
             }
             
-            
-            
+            Spacer()
         }
+        
     }
 }
 
