@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var selectedMenu = 1
-    
+    @StateObject var vm: CurrentWeatherViewModel
+
     var body: some View {
         TabView{
             VStack(spacing: 30) {
@@ -57,6 +58,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(vm: dev.currentWeatherVM)
     }
 }

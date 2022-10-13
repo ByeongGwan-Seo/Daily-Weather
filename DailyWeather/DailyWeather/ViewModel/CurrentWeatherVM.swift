@@ -6,14 +6,27 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
 
-func getCurrentWeather(cityName: String) {
-    guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=62cbe212a87167152e0493c513f437c7") else { return }
-    let session = URLSession(configuration: .default)
-    session.dataTask(with: url) {data, response, error in
-        guard let data = data, error == nil else { return }
-        let decoder = JSONDecoder()
-        let weatherInformation = try? decoder.decode(WeatherInformation.self, from: data)
-        debugPrint(weatherInformation)
-    }.resume()
+class CurrentWeatherViewModel: ObservableObject {
+    
+    @Published var currentWeather: WeatherInformation? = nil
+    
+    private let currentWeatherService: CurrentWeatherService
+    private var cancellables = Set<AnyCancellable>()
+    
+    init(cityName: String) {
+        self.currentWeatherService = CurrentWeatherService(cityName: cityName)
+        self.addSubscribers()
+    }
+    
+    private func addSubscribers() {
+        currentWeatherService.$weatherInfo
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] returnedCurrentWeather in
+                self?.currentWeather = returnedCurrentWeather
+            })
+            .store(in: &cancellables)
+    }
 }
