@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct DailyWeatherApp: App {
+    
+    @StateObject var vm = CurrentWeatherViewModel(cityName: "seoul")
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(vm: vm)
         }
     }
 }
