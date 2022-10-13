@@ -14,9 +14,7 @@
 		0631C9D328E3542C0075D03A /* DailyWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0631C9D228E3542C0075D03A /* DailyWeatherTests.swift */; };
 		0631C9DD28E3542C0075D03A /* DailyWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0631C9DC28E3542C0075D03A /* DailyWeatherUITests.swift */; };
 		0631C9DF28E3542C0075D03A /* DailyWeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0631C9DE28E3542C0075D03A /* DailyWeatherUITestsLaunchTests.swift */; };
-		0631C9F128E3D4FA0075D03A /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0631C9F028E3D4FA0075D03A /* WeatherForecast.swift */; };
 		0631C9F328EE6AFC0075D03A /* CurrentWeatherM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0631C9F228EE6AFC0075D03A /* CurrentWeatherM.swift */; };
-		0631C9F528EE6DFB0075D03A /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0631C9F428EE6DFB0075D03A /* CurrentWeather.swift */; };
 		0631C9F728EE6FD50075D03A /* CurrentWeatherVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0631C9F628EE6FD50075D03A /* CurrentWeatherVM.swift */; };
 		F7D969BF28F78E5F0073A9D7 /* CurrentWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D969BE28F78E5F0073A9D7 /* CurrentWeatherService.swift */; };
 		F7D969C228F78EA20073A9D7 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D969C128F78EA20073A9D7 /* NetworkingManager.swift */; };
@@ -51,9 +49,7 @@
 		0631C9D828E3542C0075D03A /* DailyWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0631C9DC28E3542C0075D03A /* DailyWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherUITests.swift; sourceTree = "<group>"; };
 		0631C9DE28E3542C0075D03A /* DailyWeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0631C9F028E3D4FA0075D03A /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
 		0631C9F228EE6AFC0075D03A /* CurrentWeatherM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherM.swift; sourceTree = "<group>"; };
-		0631C9F428EE6DFB0075D03A /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		0631C9F628EE6FD50075D03A /* CurrentWeatherVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherVM.swift; sourceTree = "<group>"; };
 		F7D969BE28F78E5F0073A9D7 /* CurrentWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherService.swift; sourceTree = "<group>"; };
 		F7D969C128F78EA20073A9D7 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -149,7 +145,6 @@
 		0631C9EB28E359830075D03A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0631C9EF28E35DC90075D03A /* Cells */,
 				0631C9EE28E359EC0075D03A /* Main */,
 			);
 			path = View;
@@ -177,15 +172,6 @@
 				0631C9C328E3542A0075D03A /* ContentView.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		0631C9EF28E35DC90075D03A /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				0631C9F028E3D4FA0075D03A /* WeatherForecast.swift */,
-				0631C9F428EE6DFB0075D03A /* CurrentWeather.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		F7D969BD28F78E3F0073A9D7 /* Service */ = {
@@ -342,8 +328,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0631C9F128E3D4FA0075D03A /* WeatherForecast.swift in Sources */,
-				0631C9F528EE6DFB0075D03A /* CurrentWeather.swift in Sources */,
 				0631C9C428E3542A0075D03A /* ContentView.swift in Sources */,
 				0631C9F728EE6FD50075D03A /* CurrentWeatherVM.swift in Sources */,
 				0631C9F328EE6AFC0075D03A /* CurrentWeatherM.swift in Sources */,

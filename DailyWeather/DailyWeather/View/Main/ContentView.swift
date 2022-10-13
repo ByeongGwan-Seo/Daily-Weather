@@ -15,6 +15,13 @@ struct ContentView: View {
     var body: some View {
         TabView{
             VStack(spacing: 30) {
+                if let currentWeather = vm.currentWeather {
+                    Text("\(currentWeather.name)")
+                    Text("\(currentWeather.temp.temp)")
+                    Text("\(currentWeather.temp.maxTemp)")
+                    Text("\(currentWeather.temp.minTemp)")
+                }
+
                 Picker(selection: $selectedMenu, label: Text("Picker"), content: {
                     Text("Today").tag(1)
                         .font(.largeTitle)
