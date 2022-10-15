@@ -15,13 +15,6 @@ struct ContentView: View {
     var body: some View {
         TabView{
             VStack(spacing: 30) {
-                if let currentWeather = vm.currentWeather {
-                    Text("\(currentWeather.name)")
-                    Text("\(currentWeather.temp.temp)")
-                    Text("\(currentWeather.temp.maxTemp)")
-                    Text("\(currentWeather.temp.minTemp)")
-                }
-
                 Picker(selection: $selectedMenu, label: Text("Picker"), content: {
                     Text("Today").tag(1)
                         .font(.largeTitle)
@@ -34,18 +27,20 @@ struct ContentView: View {
                 Spacer(minLength: 10)
                 
                 if selectedMenu == 1 {
-                    Text("Seoul")
-                        .font(.largeTitle)
-                    Image(systemName: "sun.max.fill")
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 200)
-                    HStack(alignment: .center, spacing: 50) {
-                        Text("Max: 27")
-                            .font(.title3)
-                        Text("Min: 14")
-                            .font(.title3)
+                    if let currentWeather = vm.currentWeather {
+                        Text("\(currentWeather.name)")
+                            .font(.largeTitle)
+                        Image(systemName: "sun.max.fill")
+                            .renderingMode(.original)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+                        HStack(alignment: .center, spacing: 50) {
+                            Text("Max: \(currentWeather.temp.maxTemp)")
+                                .font(.title3)
+                            Text("Min: \(currentWeather.temp.minTemp)")
+                                .font(.title3)
+                        }
                     }
                 } else {
                     Text("Forecast Here")
