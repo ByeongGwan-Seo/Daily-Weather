@@ -34,10 +34,12 @@ struct ContentView: View {
                 Spacer()
             }
             .tabItem{
+                Image(systemName: "globe")
                 Text("Main")
             }
             SearchV()
                 .tabItem{
+                    Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
         }

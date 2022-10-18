@@ -27,6 +27,7 @@ struct SearchV: View {
                                 searchText = ""
                                 withAnimation {
                                     searching = false
+                                    UIApplication.shared.dismissKeyboard()
                                 }
                             }
                         }
@@ -73,5 +74,11 @@ struct SearchBar: View {
         .frame(height: 40)
         .cornerRadius(13)
         .padding()
+    }
+}
+
+extension UIApplication {
+    func dismissKeyboard() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
