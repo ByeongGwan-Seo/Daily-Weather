@@ -27,21 +27,7 @@ struct ContentView: View {
                 Spacer(minLength: 10)
                 
                 if selectedMenu == 1 {
-                    if let currentWeather = vm.currentWeather {
-                        Text("\(currentWeather.name)")
-                            .font(.largeTitle)
-                        Image(systemName: "sun.max.fill")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 200, height: 200)
-                        HStack(alignment: .center, spacing: 50) {
-                            Text("Max: \(currentWeather.temp.maxTemp)")
-                                .font(.title3)
-                            Text("Min: \(currentWeather.temp.minTemp)")
-                                .font(.title3)
-                        }
-                    }
+                    CurrentWeatherV(vm: vm)
                 } else {
                     Text("Forecast Here")
                 }
@@ -50,7 +36,7 @@ struct ContentView: View {
             .tabItem{
                 Text("Main")
             }
-            Text("Search")
+            SearchV()
                 .tabItem{
                     Text("Search")
                 }
