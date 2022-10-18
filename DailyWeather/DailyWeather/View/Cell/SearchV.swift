@@ -20,7 +20,17 @@ struct SearchV: View {
                 SearchBar(searchText: $searchText, searching: $searching)
                 List(cities, id:\.self) {city in Text(city)}
                     .listStyle(GroupedListStyle())
-                    .navigationTitle("Search city")
+                    .navigationTitle(searching ? "Searching" : "Search city")
+                    .toolbar {
+                        if searching {
+                            Button("Cancel") {
+                                searchText = ""
+                                withAnimation {
+                                    searching = false
+                                }
+                            }
+                        }
+                    }
             }
         }
     }
@@ -40,11 +50,23 @@ struct SearchBar: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.cyan)
+                .foregroundColor(.gray)
             HStack {
                 Image(systemName: "magnifyingglass")
-                TextField("Search", text: $searchText)
+                TextField("Search", text: $searchText) {startedEditing in if startedEditing {
+                    withAnimation{
+                        searching = true
+                        }
+                    }
+                } onCommit: {
+                    withAnimation {
+                        searching = false
+                    }
+                }
             }
+            
+            
+            
             .foregroundColor(.gray)
             .padding(.leading, 13)
         }
