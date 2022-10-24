@@ -20,10 +20,9 @@ struct CurrentWeatherV: View {
                 let minTempK:Double = currentWeather.temp.minTemp
                 let maxTemp:String = String(format: "%.1f", maxTempK - 273.15)
                 let minTemp:String = String(format: "%.1f", minTempK - 273.15)
-                
                 Text("\(currentWeather.name)")
                     .font(.largeTitle)
-                Image(systemName: "sun.max.fill")
+                weatherImage(weather: currentWeather.weather.first?.main ?? .init())
                     .renderingMode(.original)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -35,6 +34,24 @@ struct CurrentWeatherV: View {
                         .font(.title3)
                 }
             }
+        }
+    }
+    
+    // TODO: イメージ修正
+    func weatherImage(weather: String) -> Image {
+        switch weather {
+        case "Clear":
+            return Image(systemName: "sun.max.fill")
+        case "Clouds":
+            return Image(systemName: "sun.max.fill")
+        case "Rain":
+            return Image(systemName: "sun.max.fill")
+        case "Snow":
+            return Image(systemName: "sun.max.fill")
+        case "Extreme":
+            return Image(systemName: "sun.max.fill")
+        default:
+            return Image(systemName: "sun.max.fill")
         }
     }
 }
