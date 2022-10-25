@@ -43,13 +43,13 @@ struct CurrentWeatherV: View {
         case "Clear":
             return Image(systemName: "sun.max.fill")
         case "Clouds":
-            return Image(systemName: "sun.max.fill")
+            return Image(systemName: "cloud.fill")
         case "Rain":
-            return Image(systemName: "sun.max.fill")
+            return Image(systemName: "cloud.rain.fill")
         case "Snow":
-            return Image(systemName: "sun.max.fill")
+            return Image(systemName: "cloud.snow.fill")
         case "Extreme":
-            return Image(systemName: "sun.max.fill")
+            return Image(systemName: "cloud.bolt.fill")
         default:
             return Image(systemName: "sun.max.fill")
         }
