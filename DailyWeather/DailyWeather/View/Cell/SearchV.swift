@@ -45,6 +45,7 @@ struct SearchV_Previews: PreviewProvider {
 }
 
 struct SearchBar: View {
+    
     @Binding var searchText: String
     @Binding var searching: Bool
     
@@ -65,9 +66,6 @@ struct SearchBar: View {
                     }
                 }
             }
-            
-            
-            
             .foregroundColor(.gray)
             .padding(.leading, 13)
         }
