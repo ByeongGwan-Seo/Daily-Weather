@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct WelcomeV: View {
-    @EnvironmentObject var locationManager: LocationManager
     
     var body: some View {
         VStack {
@@ -16,13 +15,21 @@ struct WelcomeV: View {
                 Text("Daily Weatherへようこそ")
                     .bold().font(.title)
                 
-                Text("顧客様の現在位置を表示できるよう、現在位置共有をお願い致します。")
+                Text("確認したい地域の地名をご記入ください")
+                    .bold()
                     .padding()
+                
+                Text("※ 都市名は英語でご記入お願い致します")
+                    .font(.caption)
             }
             .multilineTextAlignment(.center)
             .padding()
+            
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+        .preferredColorScheme(.dark)
     }
 }
 
