@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct DailyWeatherApp: App {
     
-    @StateObject var vm = CurrentWeatherViewModel(cityName: "seoul")
+    @StateObject var vm = CurrentWeatherViewModel(cityName: "detroit")
 
     var body: some Scene {
         WindowGroup {

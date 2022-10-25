@@ -27,6 +27,7 @@ struct SearchV: View {
                                 searchText = ""
                                 withAnimation {
                                     searching = false
+                                    UIApplication.shared.dismissKeyboard()
                                 }
                             }
                         }
@@ -44,6 +45,7 @@ struct SearchV_Previews: PreviewProvider {
 }
 
 struct SearchBar: View {
+    
     @Binding var searchText: String
     @Binding var searching: Bool
     
@@ -64,14 +66,17 @@ struct SearchBar: View {
                     }
                 }
             }
-            
-            
-            
             .foregroundColor(.gray)
             .padding(.leading, 13)
         }
         .frame(height: 40)
         .cornerRadius(13)
         .padding()
+    }
+}
+
+extension UIApplication {
+    func dismissKeyboard() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
