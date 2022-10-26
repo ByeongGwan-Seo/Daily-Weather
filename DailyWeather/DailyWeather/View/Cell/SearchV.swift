@@ -12,13 +12,13 @@ struct SearchV: View {
     @State var searchText = ""
     @State var searching = false
     
-    let cities = ["seoul", "tokyo", "osaka", "busan", "kyoto"]
+    let cities = ["Seoul", "Tokyo", "Osaka", "Busan", "Kyoto", "Toronto", "Osan"]
 
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 SearchBar(searchText: $searchText, searching: $searching)
-                List(cities, id:\.self) {city in Text(city)}
+                List(cities.filter({(city: String) -> Bool in return city.hasPrefix(searchText) || searchText == ""}), id:\.self) {city in Text(city)}
                     .listStyle(GroupedListStyle())
                     .navigationTitle(searching ? "Searching" : "Search city")
                     .toolbar {
@@ -52,7 +52,7 @@ struct SearchBar: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.clear)
+                .foregroundColor(.white)
             HStack {
                 Image(systemName: "magnifyingglass")
                 TextField("Search", text: $searchText) {startedEditing in if startedEditing {
