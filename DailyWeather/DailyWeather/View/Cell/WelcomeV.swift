@@ -11,6 +11,9 @@ struct WelcomeV: View {
     
     @State var searchText = ""
     @State var searching = false
+    @StateObject var vm: CurrentWeatherViewModel
+    //bool로 파라미터값을 선언하고
+    @State var showNextPage = false
     
     var body: some View {
         VStack {
@@ -30,13 +33,19 @@ struct WelcomeV: View {
                     SearchBar(searchText: $searchText, searching: $searching)
                     
                     Button{
-                        
+                        //modal로 contentView 호출
+                        //여기에다가 showNextPage를 true로 변경해주는
+                        showNextPage.toggle()
                     } label: {
                         Text("確認")
                     }
                     .padding()
                     .background(.white)
                     .cornerRadius(13)
+                    //파라미터로
+                    .sheet(isPresented: $showNextPage) {
+                        ContentView(vm: vm)
+                    }
                 }
             }
             .multilineTextAlignment(.center)
@@ -50,6 +59,6 @@ struct WelcomeV: View {
 
 struct WelcomeV_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeV()
+        WelcomeV(vm: dev.currentWeatherVM)
     }
 }
