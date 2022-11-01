@@ -55,6 +55,8 @@ struct InputInfo: View {
         Button{
             //modal로 contentView 호출
             //여기에다가 showNextPage를 true로 변경해주는
+            searchText = searchText.self
+            
             showNextPage.toggle()
         } label: {
             Text("確認")
