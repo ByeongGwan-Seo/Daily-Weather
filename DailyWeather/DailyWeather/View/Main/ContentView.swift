@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         TabView{
 
-            VStack(spacing: 30) {
+            VStack {
                 Picker(selection: $selectedMenu, label: Text("Picker"), content: {
                     Text("Today").tag(1)
                         .font(.largeTitle)
@@ -24,14 +24,14 @@ struct ContentView: View {
                 })
                 .pickerStyle(.segmented)
                 .frame(width: 250)
-                .padding()
                 
-                Spacer(minLength: 10)
+                
+                Spacer(minLength: 20)
                 
                 if selectedMenu == 1 {
                     CurrentWeatherV(vm: vm)
                 } else {
-                    Text("Forecast Here")
+                    ForecastV()
                 }
                 Spacer()
             }
