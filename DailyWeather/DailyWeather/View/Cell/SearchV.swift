@@ -18,8 +18,19 @@ struct SearchV: View {
         NavigationView {
             VStack(alignment: .leading) {
                 SearchBar(searchText: $searchText, searching: $searching)
-                List(cities.filter({(city: String) -> Bool in return city.hasPrefix(searchText) || searchText == ""}), id:\.self) {city in Text(city)}
-                    .listStyle(GroupedListStyle())
+                List(cities.filter({(city: String) -> Bool in return city.hasPrefix(searchText) || searchText == ""}), id:\.self) {city in ZStack{
+                    NavigationLink {
+                        Text("여기에 선택한 도시의 현재 날씨 표시")
+                    } label: {
+                        EmptyView()
+                    }
+                    Text(city)
+                        .listStyle(GroupedListStyle())
+                }
+                
+                }
+                
+                    
                     .navigationTitle(searching ? "Searching" : "Search city")
                     .toolbar {
                         if searching {
