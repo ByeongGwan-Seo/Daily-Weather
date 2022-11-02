@@ -1,0 +1,4 @@
+xcuserdata/
+
+UserInterfaceState.xcuserstate
+.DS_Store
