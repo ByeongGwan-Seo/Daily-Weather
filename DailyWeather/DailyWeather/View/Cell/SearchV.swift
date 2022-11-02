@@ -12,6 +12,8 @@ struct SearchV: View {
     @State var searchText = ""
     @State var searching = false
     
+    @StateObject var vm: CurrentWeatherViewModel
+
     let cities = ["Seoul", "Tokyo", "Osaka", "Busan", "Kyoto", "Toronto", "Osan"]
 
     var body: some View {
@@ -20,7 +22,7 @@ struct SearchV: View {
                 SearchBar(searchText: $searchText, searching: $searching)
                 List(cities.filter({(city: String) -> Bool in return city.hasPrefix(searchText) || searchText == ""}), id:\.self) {city in ZStack{
                     NavigationLink {
-                        Text("여기에 선택한 도시의 현재 날씨 표시")
+                        CurrentWeatherV(vm:vm)
                     } label: {
                         EmptyView()
                     }
@@ -51,7 +53,7 @@ struct SearchV: View {
 
 struct SearchV_Previews: PreviewProvider {
     static var previews: some View {
-        SearchV()
+        SearchV(vm: dev.currentWeatherVM)
     }
 }
 
