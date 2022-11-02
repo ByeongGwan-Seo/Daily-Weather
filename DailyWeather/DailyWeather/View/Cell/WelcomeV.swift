@@ -41,7 +41,7 @@ struct WelcomeV: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-        .preferredColorScheme(.dark)
+        .foregroundColor(.white)
     }
 }
 
@@ -63,9 +63,10 @@ struct InputInfo: View {
         }
         .padding()
         .background(.white)
+        .foregroundColor(.blue)
         .cornerRadius(13)
         //파라미터로
-        .sheet(isPresented: $showNextPage) {
+        .fullScreenCover(isPresented: $showNextPage) {
             ContentView(vm: vm)
         }
     }
