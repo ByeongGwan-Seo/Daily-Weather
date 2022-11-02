@@ -16,9 +16,11 @@ struct SearchV: View {
 
     var body: some View {
         NavigationView {
+            let filteredCity = cities.filter { $0.hasPrefix(searchText) || searchText == "" }
+            
             VStack(alignment: .leading) {
                 SearchBar(searchText: $searchText, searching: $searching)
-                List(cities.filter({(city: String) -> Bool in return city.hasPrefix(searchText) || searchText == ""}), id:\.self) {city in Text(city)}
+                List(filteredCity, id:\.self) {city in Text(city)}
                     .listStyle(GroupedListStyle())
                     .navigationTitle(searching ? "Searching" : "Search city")
                     .toolbar {
