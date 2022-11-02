@@ -77,13 +77,13 @@ struct WelcomeV_Previews: PreviewProvider {
     }
 }
 
-//error타입 정의
-enum TestError: Error {
-    case text_nil
-}
-//예외 처리 오류가 나는 조건
-func getNextViewAndThrows(inputText: String) throws -> Int {
-    guard inputText != nil else {
-        throw TestError.text_nil
-    }
-}
+////error타입 정의
+//enum TestError: Error {
+//    case text_nil
+//}
+////예외 처리 오류가 나는 조건
+//func getNextViewAndThrows(inputText: String) throws -> Int {
+//    guard inputText != nil else {
+//        throw TestError.text_nil
+//    }
+//}
