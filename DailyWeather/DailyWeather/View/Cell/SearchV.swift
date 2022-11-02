@@ -18,21 +18,13 @@ struct SearchV: View {
 
     var body: some View {
         NavigationView {
+            let filteredCities = cities.filter { $0.hasPrefix(searchText) || searchText == "" }
+            
             VStack(alignment: .leading) {
                 SearchBar(searchText: $searchText, searching: $searching)
-                List(cities.filter({(city: String) -> Bool in return city.hasPrefix(searchText) || searchText == ""}), id:\.self) {city in ZStack{
-                    NavigationLink {
-                        CurrentWeatherV(vm:vm)
-                    } label: {
-                        EmptyView()
-                    }
-                    Text(city)
-                        .listStyle(GroupedListStyle())
-                }
-                
-                }
-                
-                    
+                List(filteredCities, id:\.self) {city in Text(city)}
+                    .listStyle(GroupedListStyle())
+
                     .navigationTitle(searching ? "Searching" : "Search city")
                     .toolbar {
                         if searching {
