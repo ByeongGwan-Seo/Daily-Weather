@@ -12,6 +12,8 @@ struct SearchV: View {
     @State var searchText = ""
     @State var searching = false
     
+    @StateObject var vm: CurrentWeatherViewModel
+
     let cities = ["Seoul", "Tokyo", "Osaka", "Busan", "Kyoto", "Toronto", "Osan"]
 
     var body: some View {
@@ -22,6 +24,7 @@ struct SearchV: View {
                 SearchBar(searchText: $searchText, searching: $searching)
                 List(filteredCities, id:\.self) {city in Text(city)}
                     .listStyle(GroupedListStyle())
+
                     .navigationTitle(searching ? "Searching" : "Search city")
                     .toolbar {
                         if searching {
@@ -42,7 +45,7 @@ struct SearchV: View {
 
 struct SearchV_Previews: PreviewProvider {
     static var previews: some View {
-        SearchV()
+        SearchV(vm: dev.currentWeatherVM)
     }
 }
 
