@@ -22,9 +22,17 @@ struct SearchV: View {
             
             VStack(alignment: .leading) {
                 SearchBar(searchText: $searchText, searching: $searching)
-                List(filteredCities, id:\.self) {city in Text(city)}
+                List(filteredCities, id:\.self) {city in ZStack {
+                    NavigationLink {
+                        CurrentWeatherV(vm: vm)
+                    } label: {
+                        EmptyView()
+                    }
+                    Text(city)
+                }
+                .frame(height: 60)
+                }
                     .listStyle(GroupedListStyle())
-
                     .navigationTitle(searching ? "Searching" : "Search city")
                     .toolbar {
                         if searching {
