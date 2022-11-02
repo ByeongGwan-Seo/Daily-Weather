@@ -12,6 +12,7 @@ struct WelcomeV: View {
     @State var searchText = ""
     @State var searching = false
     @StateObject var vm: CurrentWeatherViewModel
+
     //bool로 파라미터값을 선언하고
     @State var showNextPage = false
     
@@ -32,20 +33,7 @@ struct WelcomeV: View {
                 HStack{
                     SearchBar(searchText: $searchText, searching: $searching)
                     
-                    Button{
-                        //modal로 contentView 호출
-                        //여기에다가 showNextPage를 true로 변경해주는
-                        showNextPage.toggle()
-                    } label: {
-                        Text("確認")
-                    }
-                    .padding()
-                    .background(.white)
-                    .cornerRadius(13)
-                    //파라미터로
-                    .sheet(isPresented: $showNextPage) {
-                        ContentView(vm: vm)
-                    }
+                    InputInfo(searchText: $searchText, showNextPage: $showNextPage, vm: vm)
                 }
             }
             .multilineTextAlignment(.center)
@@ -57,8 +45,45 @@ struct WelcomeV: View {
     }
 }
 
+struct InputInfo: View {
+    @Binding var searchText: String
+    @Binding var showNextPage: Bool
+    
+    @StateObject var vm: CurrentWeatherViewModel
+
+    var body: some View {
+        Button{
+            //modal로 contentView 호출
+            //여기에다가 showNextPage를 true로 변경해주는
+            searchText = searchText.self
+            
+            showNextPage.toggle()
+        } label: {
+            Text("確認")
+        }
+        .padding()
+        .background(.white)
+        .cornerRadius(13)
+        //파라미터로
+        .sheet(isPresented: $showNextPage) {
+            ContentView(vm: vm)
+        }
+    }
+}
+
 struct WelcomeV_Previews: PreviewProvider {
     static var previews: some View {
         WelcomeV(vm: dev.currentWeatherVM)
     }
 }
+
+////error타입 정의
+//enum TestError: Error {
+//    case text_nil
+//}
+////예외 처리 오류가 나는 조건
+//func getNextViewAndThrows(inputText: String) throws -> Int {
+//    guard inputText != nil else {
+//        throw TestError.text_nil
+//    }
+//}

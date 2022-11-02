@@ -39,7 +39,7 @@ struct ContentView: View {
                 Image(systemName: "globe")
                 Text("Main")
             }
-            SearchV()
+            SearchV(vm:vm)
                 .tabItem{
                     Image(systemName: "magnifyingglass")
                     Text("Search")
