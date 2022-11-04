@@ -36,6 +36,7 @@ struct WelcomeV: View {
                         //modal로 contentView 호출
                         //여기에다가 showNextPage를 true로 변경해주는
                         showNextPage.toggle()
+                        vm.getCurrentWeather(cityName: vm.searchText)
                     } label: {
                         Text("確認")
                     }

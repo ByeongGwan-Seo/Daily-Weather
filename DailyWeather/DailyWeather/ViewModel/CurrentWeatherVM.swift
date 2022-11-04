@@ -30,4 +30,8 @@ class CurrentWeatherViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
+    
+    func getCurrentWeather(cityName: String) {
+        currentWeatherService.getCurrentWeather(cityName: cityName)
+    }
 }

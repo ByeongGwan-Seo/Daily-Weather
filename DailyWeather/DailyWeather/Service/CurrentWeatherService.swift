@@ -12,15 +12,13 @@ class CurrentWeatherService {
     
     @Published var weatherInfo: WeatherInformation?
     
-    private let cityName: String
     private var coinSubscription: AnyCancellable?
 
     init(cityName: String) {
-        self.cityName = cityName
-        getCurrentWeather()
+        getCurrentWeather(cityName: cityName)
     }
     
-    func getCurrentWeather() {
+    func getCurrentWeather(cityName: String) {
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=62cbe212a87167152e0493c513f437c7") else { return }
         
         coinSubscription = NetworkingManager.download(url: url)
