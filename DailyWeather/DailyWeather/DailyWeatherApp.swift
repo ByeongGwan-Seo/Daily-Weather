@@ -11,11 +11,12 @@ import SwiftUI
 @main
 struct DailyWeatherApp: App {
     
-    @StateObject var vm = CurrentWeatherViewModel(cityName: "tokyo")
+    @StateObject var vm = CurrentWeatherViewModel()
 
     var body: some Scene {
         WindowGroup {
             SplashScreenV()
+                .environmentObject(vm)
         }
     }
 }
