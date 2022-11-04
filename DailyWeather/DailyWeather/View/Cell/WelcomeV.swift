@@ -9,9 +9,8 @@ import SwiftUI
 
 struct WelcomeV: View {
     
-    @State var searchText = ""
     @State var searching = false
-    @StateObject var vm: CurrentWeatherViewModel
+    @EnvironmentObject var vm: CurrentWeatherViewModel
 
     //bool로 파라미터값을 선언하고
     @State var showNextPage = false
@@ -31,9 +30,23 @@ struct WelcomeV: View {
                     .font(.caption)
             
                 HStack{
-                    SearchBar(searchText: $searchText, searching: $searching)
+                    SearchBar(searchText: $vm.searchText, searching: $searching)
                     
-                    InputInfo(searchText: $searchText, showNextPage: $showNextPage, vm: vm)
+                    Button{
+                        //modal로 contentView 호출
+                        //여기에다가 showNextPage를 true로 변경해주는
+                        showNextPage.toggle()
+                    } label: {
+                        Text("確認")
+                    }
+                    .padding()
+                    .background(.white)
+                    .foregroundColor(.blue)
+                    .cornerRadius(13)
+                    //파라미터로
+                    .fullScreenCover(isPresented: $showNextPage) {
+                        ContentView()
+                    }
                 }
             }
             .multilineTextAlignment(.center)
@@ -45,36 +58,10 @@ struct WelcomeV: View {
     }
 }
 
-struct InputInfo: View {
-    @Binding var searchText: String
-    @Binding var showNextPage: Bool
-    
-    @StateObject var vm: CurrentWeatherViewModel
-
-    var body: some View {
-        Button{
-            //modal로 contentView 호출
-            //여기에다가 showNextPage를 true로 변경해주는
-            searchText = searchText.self
-            
-            showNextPage.toggle()
-        } label: {
-            Text("確認")
-        }
-        .padding()
-        .background(.white)
-        .foregroundColor(.blue)
-        .cornerRadius(13)
-        //파라미터로
-        .fullScreenCover(isPresented: $showNextPage) {
-            ContentView(vm: vm)
-        }
-    }
-}
-
 struct WelcomeV_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeV(vm: dev.currentWeatherVM)
+        WelcomeV()
+            .environmentObject(dev.currentWeatherVM)
     }
 }
 

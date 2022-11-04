@@ -10,8 +10,7 @@ import SwiftUI
 struct CurrentWeatherV: View {
     
     @State private var selectedMenu = 1
-    @StateObject var vm: CurrentWeatherViewModel
-    
+    @EnvironmentObject var vm: CurrentWeatherViewModel
     
     var body: some View {
         VStack {
@@ -36,6 +35,7 @@ struct CurrentWeatherV: View {
                 }
             }
         }
+        .background(.red)
     }
     
     // TODO: イメージ修正
@@ -59,6 +59,7 @@ struct CurrentWeatherV: View {
 
 struct CurrentWeatherV_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentWeatherV(vm: dev.currentWeatherVM)
+        CurrentWeatherV()
+            .environmentObject(dev.currentWeatherVM)
     }
 }

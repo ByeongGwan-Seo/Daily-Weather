@@ -9,22 +9,20 @@ import SwiftUI
 
 struct SearchV: View {
 
-    @State var searchText = ""
+    @EnvironmentObject var vm: CurrentWeatherViewModel
     @State var searching = false
     
-    @StateObject var vm: CurrentWeatherViewModel
-
     let cities = ["Seoul", "Tokyo", "Osaka", "Busan", "Kyoto", "Toronto", "Osan"]
 
     var body: some View {
         NavigationView {
-            let filteredCities = cities.filter { $0.hasPrefix(searchText) || searchText == "" }
+            let filteredCities = cities.filter { $0.hasPrefix(vm.searchText) || vm.searchText == "" }
             
             VStack(alignment: .leading) {
-                SearchBar(searchText: $searchText, searching: $searching)
+                SearchBar(searchText: $vm.searchText, searching: $searching)
                 List(filteredCities, id:\.self) {city in ZStack {
                     NavigationLink {
-                        CurrentWeatherV(vm: vm)
+                        CurrentWeatherV()
                     } label: {
                         EmptyView()
                     }
@@ -37,7 +35,7 @@ struct SearchV: View {
                     .toolbar {
                         if searching {
                             Button("Cancel") {
-                                searchText = ""
+                                vm.searchText = ""
                                 withAnimation {
                                     searching = false
                                     UIApplication.shared.dismissKeyboard()
@@ -53,7 +51,8 @@ struct SearchV: View {
 
 struct SearchV_Previews: PreviewProvider {
     static var previews: some View {
-        SearchV(vm: dev.currentWeatherVM)
+        SearchV()
+            .environmentObject(dev.currentWeatherVM)
     }
 }
 

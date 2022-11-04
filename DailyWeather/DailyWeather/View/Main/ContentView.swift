@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var selectedMenu = 1
-    @StateObject var vm: CurrentWeatherViewModel
+    @EnvironmentObject var vm: CurrentWeatherViewModel
 
     var body: some View {
         TabView{
@@ -29,7 +29,7 @@ struct ContentView: View {
                 Spacer(minLength: 20)
                 
                 if selectedMenu == 1 {
-                    CurrentWeatherV(vm: vm)
+                    CurrentWeatherV()
                 } else {
                     ForecastV()
                 }
@@ -39,7 +39,7 @@ struct ContentView: View {
                 Image(systemName: "globe")
                 Text("Main")
             }
-            SearchV(vm:vm)
+            SearchV()
                 .tabItem{
                     Image(systemName: "magnifyingglass")
                     Text("Search")
@@ -50,6 +50,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(vm: dev.currentWeatherVM)
+        ContentView()
+            .environmentObject(dev.currentWeatherVM)
     }
 }

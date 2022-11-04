@@ -12,11 +12,12 @@ import Combine
 class CurrentWeatherViewModel: ObservableObject {
     
     @Published var currentWeather: WeatherInformation? = nil
-    
+    @Published var searchText: String = ""
+
     private let currentWeatherService: CurrentWeatherService
     private var cancellables = Set<AnyCancellable>()
     
-    init(cityName: String) {
+    init(cityName: String = "tokyo") {
         self.currentWeatherService = CurrentWeatherService(cityName: cityName)
         self.addSubscribers()
     }
