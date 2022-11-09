@@ -15,14 +15,14 @@ struct CurrentWeatherV: View {
     var body: some View {
         VStack {
             if let currentWeather = vm.currentWeather {
-                let maxTempK:Double = currentWeather.temp.maxTemp
-                let minTempK:Double = currentWeather.temp.minTemp
+                let maxTempK:Double = currentWeather.main?.tempMax ?? 0
+                let minTempK:Double = currentWeather.main?.tempMin ?? 0
                 let maxTemp:String = String(format: "%.1f", maxTempK - 273.15)
                 let minTemp:String = String(format: "%.1f", minTempK - 273.15)
                 
-                Text("\(currentWeather.name)")
+                Text(currentWeather.name ?? "")
                     .font(.largeTitle)
-                weatherImage(weather: currentWeather.weather.first?.main ?? .init())
+                weatherImage(weather: currentWeather.weather?.first?.main ?? .init())
                     .renderingMode(.original)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
