@@ -10,7 +10,7 @@ import Combine
 
 class ForecastService {
     
-    @Published var forecastInfos: [Forecast]?
+    @Published var forecastInfo: Forecast?
 
     private var coinSubscription: AnyCancellable?
 
@@ -22,9 +22,9 @@ class ForecastService {
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(cityName)&appid=62cbe212a87167152e0493c513f437c7") else { return }
 
         coinSubscription = NetworkingManager.download(url: url)
-            .decode(type: [Forecast].self, decoder: JSONDecoder())
-            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] forecastInfos in
-                self?.forecastInfos = forecastInfos
+            .decode(type: Forecast.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] forecastInfo in
+                self?.forecastInfo = forecastInfo
                 self?.coinSubscription?.cancel()
             })
     }

@@ -9,21 +9,21 @@ import Foundation
 import Combine
 
 final class ForeCastViewModel: ObservableObject {
-    @Published var forecasts: [Forecast]?
+    @Published var forecast: Forecast?
 
     private let forecastService: ForecastService
     private var cancellables = Set<AnyCancellable>()
     
-    init(cityName: String = "tokyo") {
+    init(cityName: String) {
         self.forecastService = ForecastService(cityName: cityName)
         self.addSubscribers()
     }
     
     private func addSubscribers() {
-        forecastService.$forecastInfos
+        forecastService.$forecastInfo
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] returnedForecasts in
-                self?.forecasts = returnedForecasts
+            .sink(receiveValue: { [weak self] returnedForecast in
+                self?.forecast = returnedForecast
             })
             .store(in: &cancellables)
     }
