@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ForecastV: View {
     
-    @StateObject var vm = ForeCastViewModel()
+//    @StateObject var vm = ForeCastViewModel()
     
     var body: some View {
-        List($vm.models) { $item in ForecastVRow(forecast: $item)
-        }
-        .listStyle(.insetGrouped)
+        Text("TODO")
+//        List($vm.models) { $item in ForecastVRow(forecast: $item)
+//        }
+//        .listStyle(.insetGrouped)
         
     }
 }
