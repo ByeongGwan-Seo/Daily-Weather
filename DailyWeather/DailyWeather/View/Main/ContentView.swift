@@ -13,38 +13,39 @@ struct ContentView: View {
     @EnvironmentObject var vm: CurrentWeatherViewModel
 
     var body: some View {
-        TabView{
-
-            VStack {
-                Picker(selection: $selectedMenu, label: Text("Picker"), content: {
-                    Text("Today").tag(1)
-                        .font(.largeTitle)
-                        .font(.largeTitle)
-                    Text("Forecast").tag(2)
-                })
-                .pickerStyle(.segmented)
-                .frame(width: 250)
-                
-                
-                Spacer(minLength: 20)
-                
-                if selectedMenu == 1 {
-                    CurrentWeatherV()
-                } else {
-                    // TODO: cityName 받아서 넣기
-                    ForecastV(cityName: "Seoul")
+        ZStack {
+            TabView{
+                VStack {
+                    Picker(selection: $selectedMenu, label: Text("Picker"), content: {
+                        Text("Today").tag(1)
+                            .font(.largeTitle)
+                            .font(.largeTitle)
+                        Text("Forecast").tag(2)
+                    })
+                    .pickerStyle(.segmented)
+                    .frame(width: 250)
+                    
+                    
+                    Spacer(minLength: 20)
+                    
+                    if selectedMenu == 1 {
+                        CurrentWeatherV()
+                    } else {
+                        // TODO: cityName 받아서 넣기
+                        ForecastV(cityName: "Seoul")
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-            .tabItem{
-                Image(systemName: "globe")
-                Text("Main")
-            }
-            SearchV()
                 .tabItem{
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
+                    Image(systemName: "globe")
+                    Text("Main")
                 }
+                SearchV()
+                    .tabItem{
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+            }
         }
     }
 }

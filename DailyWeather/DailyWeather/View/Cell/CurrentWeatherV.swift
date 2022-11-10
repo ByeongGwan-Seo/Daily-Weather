@@ -35,7 +35,7 @@ struct CurrentWeatherV: View {
                 }
             }
         }
-        .background(.red)
+//        .background(.red)
     }
     
     // TODO: イメージ修正
