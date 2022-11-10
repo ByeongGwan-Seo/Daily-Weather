@@ -8,32 +8,65 @@
 import Foundation
 
 struct WeatherInformation: Codable {
-    let weather: [Weather]
-    let temp: Temp
-    let name: String
-    
-    enum CodingKeys: String, CodingKey {
-        case weather
-        case temp = "main"
-        case name
-    }
+    let coord: Coord?
+    let weather: [Weather]?
+    let base: String?
+    let main: Main?
+    let visibility: Int?
+    let wind: Wind?
+    let clouds: Clouds?
+    let dt: Int?
+    let sys: Sys?
+    let timezone, id: Int?
+    let name: String?
+    let cod: Int?
 }
 
-struct Weather: Codable {
-    let id: Int
-    let main: String
-    let description: String
-    let icon: String
+// MARK: - Clouds
+struct Clouds: Codable {
+    let all: Int?
 }
 
-struct Temp: Codable {
-    let temp: Double
-    let minTemp: Double
-    let maxTemp: Double
-    
+// MARK: - Coord
+struct Coord: Codable {
+    let lon, lat: Double?
+}
+
+// MARK: - Main
+struct Main: Codable {
+    let temp, feelsLike, tempMin, tempMax: Double?
+    let pressure, humidity: Int?
+
     enum CodingKeys: String, CodingKey {
         case temp
-        case minTemp = "temp_min"
-        case maxTemp = "temp_max"
+        case feelsLike = "feels_like"
+        case tempMin = "temp_min"
+        case tempMax = "temp_max"
+        case pressure, humidity
     }
+}
+
+// MARK: - Sys
+struct Sys: Codable {
+    let type, id: Int?
+    let country: String?
+    let sunrise, sunset: Int?
+}
+
+// MARK: - Weather
+struct Weather: Codable {
+    let id: Int?
+    let main, weatherDescription, icon: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, main
+        case weatherDescription = "weather_description"
+        case icon
+    }
+}
+
+// MARK: - Wind
+struct Wind: Codable {
+    let speed: Double?
+    let deg: Int?
 }
