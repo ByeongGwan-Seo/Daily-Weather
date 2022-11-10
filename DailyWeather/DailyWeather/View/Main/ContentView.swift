@@ -14,11 +14,16 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
+            RadialGradient(colors: [Color(red: 9, green: 9, blue: 121),
+                                    Color(red: 0, green: 212, blue: 255)],
+                           center: .bottomTrailing,
+                           startRadius: 0,
+                           endRadius: 35)
+            .ignoresSafeArea()
             TabView{
                 VStack {
                     Picker(selection: $selectedMenu, label: Text("Picker"), content: {
                         Text("Today").tag(1)
-                            .font(.largeTitle)
                             .font(.largeTitle)
                         Text("Forecast").tag(2)
                     })
