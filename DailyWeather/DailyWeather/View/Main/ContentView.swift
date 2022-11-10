@@ -31,7 +31,8 @@ struct ContentView: View {
                 if selectedMenu == 1 {
                     CurrentWeatherV()
                 } else {
-                    ForecastV()
+                    // TODO: cityName 받아서 넣기
+                    ForecastV(cityName: "Seoul")
                 }
                 Spacer()
             }
