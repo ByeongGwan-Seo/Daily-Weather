@@ -17,22 +17,20 @@ struct MainView2: View {
     @State private var selectedMenu: Int = 1
     
     var body: some View {
-        TabView {
+       
             ZStack {
                 LinearGradient(colors: [Color(#colorLiteral(red: 0, green: 0.649317205, blue: 0.933945477, alpha: 1)), Color(#colorLiteral(red: 0.3848685026, green: 0.8256501555, blue: 0.7817828059, alpha: 1))],
                                startPoint: .top,
                                endPoint: .bottomTrailing)
                 .ignoresSafeArea()
-                Rectangle()
-                    .foregroundColor(Color.white.opacity(0.3))
-                    .padding(.bottom)
-                    .edgesIgnoringSafeArea(.top)
+                
                 ZStack {
                     VStack(spacing: 40) {
                         Picker(selection: $selectedMenu) {
                             Text("Today").tag(1)
                                 .font(.largeTitle)
                             Text("Forecast").tag(2)
+                            Text("Search").tag(3)
                         } label: {
                             Text("oiu")
                         }
@@ -162,16 +160,7 @@ struct MainView2: View {
                     }
                 }
             }
-            .tabItem {
-                Image(systemName: "globe")
-                Text("MAIN")
-            }
-            Text("Search")
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("SEARCH")
-                }
-        }
+        
     }
     
     //    func weatherImage(weather: String) -> Image {
