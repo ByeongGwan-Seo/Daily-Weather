@@ -15,8 +15,9 @@ struct DailyWeatherApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SplashScreenV()
-                .environmentObject(vm)
+            MainView2()
+//            SplashScreenV()
+//                .environmentObject(vm)
         }
     }
 }
