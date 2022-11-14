@@ -47,6 +47,7 @@ struct WelcomeV: View {
                     //파라미터로
                     .fullScreenCover(isPresented: $showNextPage) {
                         MainView2()
+                            .environmentObject(vm)
                     }
                 }
             }

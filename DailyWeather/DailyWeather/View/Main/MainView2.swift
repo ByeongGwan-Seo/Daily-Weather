@@ -13,8 +13,6 @@ struct MainView2: View {
     @EnvironmentObject var vm: CurrentWeatherViewModel
     @State private var selectedMenu: Int = 1
     
-    
-    
     var body: some View {
         
         ZStack {
