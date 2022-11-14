@@ -34,4 +34,8 @@ class CurrentWeatherViewModel: ObservableObject {
     func getCurrentWeather(cityName: String) {
         currentWeatherService.getCurrentWeather(cityName: cityName)
     }
+    
+    
+    
+   
 }
