@@ -10,9 +10,10 @@ import SwiftUI
 struct SearchV2: View {
     
     @EnvironmentObject var vm: CurrentWeatherViewModel
-//    @EnvironmentObject var lvm: SearchListVM
+    @EnvironmentObject var lvm: SearchListVM
     @State var searching = false
     @State var searchText = ""
+    
     
     var body: some View {
         listSection
@@ -24,7 +25,7 @@ struct SearchV2_Previews: PreviewProvider {
         SearchV2()
             .preferredColorScheme(.dark)
             .environmentObject(dev.currentWeatherVM)
-//            .environmentObject(SearchListVM)
+            .environmentObject(SearchListVM())
     }
 }
 
@@ -36,14 +37,15 @@ extension SearchV2 {
                 .font(.largeTitle)
                 .fontWeight(.bold)
             List {
-                Text("This is searchV2")
-                Text("예정 기능 -> 1) searchV2에 입력한 값을 mainV2로 2)사용자의 검색 히스토리 저장")
-                Text("살려줘 메우")
-                Text("살려줘 메우")
+                ForEach(lvm.listItems) { item in
+                    SearchListRowV(item: item)
+                }
+                .onDelete(perform: lvm.deleteItem)
             }
             .frame(width: 250, height: 400)
             .background()
             .cornerRadius(30)
+            .padding()
             .listStyle(.plain)
             .foregroundColor(Color.primary)
         }
@@ -51,7 +53,7 @@ extension SearchV2 {
 }
 
 struct SearchBar: View {
-    
+    @EnvironmentObject var lvm: SearchListVM
     @Binding var searchText: String
     @Binding var searching: Bool
     
@@ -71,6 +73,9 @@ struct SearchBar: View {
                         searching = false
                     }
                 }
+                onSubmit {
+                    userSubmitted()
+                }
             }
             .foregroundColor(.gray)
             .padding(.horizontal, 13)
@@ -78,6 +83,10 @@ struct SearchBar: View {
         .frame(height: 40)
         .cornerRadius(13)
         .padding()
+    }
+    
+    func userSubmitted() {
+        lvm.addItem(title: searchText)
     }
 }
 

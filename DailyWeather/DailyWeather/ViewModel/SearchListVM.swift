@@ -7,32 +7,29 @@
 
 import Foundation
 
-//class SearchListVM: ObservableObject {
-//    @Published var items: [SearchListM]
-//    
-//    let itemsKey: String = "items_list"
-//    
-////    init() {
-////        getItems()
-////    }
-//    
-//    func getItems() {
-//        guard
-//            let data = UserDefaults.standard.data(forKey: itemsKey),
-//            let savedItems = try? JSONDecoder().decode([SearchListM].self, from: data)
-//        else { return }
-//        
-//        self.items = savedItems
-//    }
-//    
-//    func addItem(title: String) {
-//        let newItem = SearchListM(title: title)
-//        items.append(newItem)
-//    }
-//    
-//    func saveItems() {
-//        if let encodedData = try? JSONEncoder().encode(items) {
-//            UserDefaults.standard.set(encodedData, forKey: itemsKey)
-//        }
-//    }
-//}
+class SearchListVM: ObservableObject {
+    
+    @Published var listItems: [SearchListM] = []
+    
+    init() {
+        getItems()
+    }
+    
+    func getItems() {
+        let newItems = [
+            SearchListM(title: "Seoul"),
+            SearchListM(title: "Tokyo"),
+            SearchListM(title: "메우...")
+        ]
+        listItems.append(contentsOf: newItems)
+    }
+    
+    func deleteItem(indexSet: IndexSet) {
+        listItems.remove(atOffsets: indexSet)
+    }
+    
+    func addItem(title: String) {
+        let newItem = SearchListM(title: title)
+        listItems.append(newItem)
+    }
+}
