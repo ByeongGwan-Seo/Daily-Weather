@@ -17,42 +17,7 @@ struct WelcomeV: View {
     
     var body: some View {
         VStack {
-            VStack (spacing: 30){
-                
-                Text("Daily Weatherへようこそ")
-                    .bold().font(.title)
-                
-                Text("確認したい地域の地名をご記入ください")
-                    .bold()
-                    .padding()
-                
-                Text("※ 都市名は英語でご記入お願い致します")
-                    .font(.caption)
-            
-                HStack{
-                    SearchBar(searchText: $vm.searchText, searching: $searching)
-                    
-                    Button{
-                        //modal로 contentView 호출
-                        //여기에다가 showNextPage를 true로 변경해주는
-                        showNextPage.toggle()
-                        vm.getCurrentWeather(cityName: vm.searchText)
-                    } label: {
-                        Text("確認")
-                    }
-                    .padding()
-                    .background(.white)
-                    .foregroundColor(.blue)
-                    .cornerRadius(13)
-                    //파라미터로
-                    .fullScreenCover(isPresented: $showNextPage) {
-                        MainView2()
-                            .environmentObject(vm)
-                    }
-                }
-            }
-            .multilineTextAlignment(.center)
-            .padding()
+            contentsSection
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
@@ -67,6 +32,51 @@ struct WelcomeV_Previews: PreviewProvider {
     }
 }
 
+
+extension WelcomeV {
+    private var confirmBtn: some View {
+        Button{
+            //modal로 contentView 호출
+            //여기에다가 showNextPage를 true로 변경해주는
+            showNextPage.toggle()
+            vm.getCurrentWeather(cityName: vm.searchText)
+        } label: {
+            Text("確認")
+        }
+        .padding()
+        .background(.white)
+        .foregroundColor(.blue)
+        .cornerRadius(13)
+        //파라미터로
+        .fullScreenCover(isPresented: $showNextPage) {
+            MainView2()
+                .environmentObject(vm)
+        }
+    }
+    
+    private var contentsSection: some View {
+        VStack (spacing: 30){
+            
+            Text("Daily Weatherへようこそ")
+                .bold().font(.title)
+            
+            Text("確認したい地域の地名をご記入ください")
+                .bold()
+                .padding()
+            
+            Text("※ 都市名は英語でご記入お願い致します")
+                .font(.caption)
+        
+            HStack{
+                SearchBar(searchText: $vm.searchText, searching: $searching)
+                
+                confirmBtn
+            }
+        }
+        .multilineTextAlignment(.center)
+        .padding()
+    }
+}
 ////error타입 정의
 //enum TestError: Error {
 //    case text_nil
