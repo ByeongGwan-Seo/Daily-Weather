@@ -28,3 +28,12 @@ Forecastは現在Currentに反映されている地域の天気予報が示さ�
 ### 2-4. Search(作業中)   
 <img width="200" alt="스크린샷 2022-11-15 15 24 02" src="https://user-images.githubusercontent.com/109661308/201853814-71cec1e3-7f76-47c0-a551-b79c44e7c322.png">
 利用者が他の地域の情報を確認したいときに使えるスクリンです。現在は利用者が入力した地域名がCurrentWeatherに反映されるように作業中です。
+
+## 3. 現在目標
+(22.11.15 基準)
+1. SearchVで利用者が入力した地域名をCurrentWeatherに反映させること   
+2. SearchVで利用者が入力した情報を画面のリストにセーブすること（UserDefaultか@AppStorage活用予定）
+3. ForecastデータをForecast ビューに反映させること
+4. ネットワーク上で例外処理できるようにすること
+5. Currentの詳細情報をGridで示すこと
+
