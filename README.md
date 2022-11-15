@@ -24,3 +24,7 @@ Today, Forecastタブにて現在と予報を別の画面で確認できて、Se
 ### 2-3. Forecast(作業予定）
 <img width="200" alt="스크린샷 2022-11-15 15 23 54" src="https://user-images.githubusercontent.com/109661308/201851618-9cfd7a93-5c85-4247-b6eb-1d5c261c56cd.png">
 Forecastは現在Currentに反映されている地域の天気予報が示されるスクリンです。
+
+### 2-4. Search(作業中)   
+<img width="200" alt="스크린샷 2022-11-15 15 24 02" src="https://user-images.githubusercontent.com/109661308/201853814-71cec1e3-7f76-47c0-a551-b79c44e7c322.png">
+利用者が他の地域の情報を確認したいときに使えるスクリンです。現在は利用者が入力した地域名がCurrentWeatherに反映されるように作業中です。
