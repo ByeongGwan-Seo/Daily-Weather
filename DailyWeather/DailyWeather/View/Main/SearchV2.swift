@@ -34,7 +34,7 @@ extension SearchV2 {
             SearchBar(searchText: $vm.searchText, searching: $searching)
             Text("検索履歴")
                 .font(.largeTitle)
-            .fontWeight(.bold)
+                .fontWeight(.bold)
             List {
                 Text("This is searchV2")
                 Text("예정 기능 -> 1) searchV2에 입력한 값을 mainV2로 2)사용자의 검색 히스토리 저장")
