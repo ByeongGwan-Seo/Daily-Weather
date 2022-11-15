@@ -33,8 +33,19 @@ struct MainView2: View {
                     }
                     .pickerStyle(.segmented)
                     .frame(width: 300)
-                    CurrentV2()
+                    
+                    switch selectedMenu {
+                    case 1:
+                        CurrentV2()
+                    case 2:
+                        Text("forecast")
+                    case 3:
+                        SearchV2()
+                    default:
+                        CurrentV2()
+                    }
                 }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
             }
         }
     }
@@ -85,7 +96,7 @@ struct CurrentV2: View {
             let maxTemp2:String = String(format: "%.1f", maxTempK2 - 273.15)
             let minTemp2:String = String(format: "%.1f", minTempK2 - 273.15)
             
-            VStack(spacing: 80) {
+            VStack(spacing: 40) {
                 HStack {
                     Spacer()
                     Text(currentWeather2.name ?? "")

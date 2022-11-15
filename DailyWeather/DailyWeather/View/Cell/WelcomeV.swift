@@ -22,6 +22,7 @@ struct WelcomeV: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
         .foregroundColor(.white)
+        
     }
 }
 
@@ -48,7 +49,7 @@ extension WelcomeV {
         .foregroundColor(.blue)
         .cornerRadius(13)
         //파라미터로
-        .fullScreenCover(isPresented: $showNextPage) {
+        .sheet(isPresented: $showNextPage) {
             MainView2()
                 .environmentObject(vm)
         }
