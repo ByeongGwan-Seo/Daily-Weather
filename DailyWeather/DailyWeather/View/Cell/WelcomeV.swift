@@ -46,7 +46,8 @@ struct WelcomeV: View {
                     .cornerRadius(13)
                     //파라미터로
                     .fullScreenCover(isPresented: $showNextPage) {
-                        ContentView()
+                        MainView2()
+                            .environmentObject(vm)
                     }
                 }
             }
