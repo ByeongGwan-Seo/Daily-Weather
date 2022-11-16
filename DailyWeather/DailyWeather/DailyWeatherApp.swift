@@ -12,11 +12,13 @@ import SwiftUI
 struct DailyWeatherApp: App {
     
     @StateObject var vm = CurrentWeatherViewModel()
+    @StateObject var listVm: SearchListVM = SearchListVM()
 
     var body: some Scene {
         WindowGroup {
             SplashScreenV()
                 .environmentObject(vm)
+                .environmentObject(listVm)
         }
     }
 }

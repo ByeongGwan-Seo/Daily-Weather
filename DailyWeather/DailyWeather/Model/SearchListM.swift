@@ -7,12 +7,7 @@
 
 import Foundation
 
-struct SearchListM: Codable {
-    let id: String
+struct SearchListM: Identifiable {
+    let id: String = UUID().uuidString
     let title: String
-    
-    init(id: String = UUID().uuidString, title: String) {
-        self.id = UUID().uuidString
-        self.title = title
-    }
 }
