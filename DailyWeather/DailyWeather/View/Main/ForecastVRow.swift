@@ -9,32 +9,21 @@ import SwiftUI
 
 struct ForecastVRow: View {
     
-//    @Binding var forecast: ForecastModel
+    @StateObject var vm: ForeCastViewModel
+    
+    init(cityName: String) {
+        _vm = StateObject(wrappedValue: ForeCastViewModel(cityName: cityName))
+    }
     
     var body: some View {
         Text("TODO")
-//        let temperature = "\(forecast.foreMaxT)" + "/" + "\(forecast.foreMinT)"
-//        HStack {
-//            Text("\(forecast.date)")
-//                .font(.system(size: 20, weight: .bold))
-//            Spacer()
-//            Image(systemName: "\(forecast.imageName)")
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .frame(width: 40, height: 40)
-//            Spacer()
-//            HStack {
-//                Text(temperature)
-//                    .font(.system(size: 20))
-//            }
-//        }
-//        .padding()
+
     }
 }
 
 struct ForecastVRow_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastVRow()
+        ForecastVRow(cityName: "seoul")
             .previewLayout(.fixed(width: 390, height: 80))
     }
 }

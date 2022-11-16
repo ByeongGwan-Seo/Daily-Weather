@@ -13,8 +13,6 @@ struct WelcomeV: View {
     @EnvironmentObject var vm: CurrentWeatherViewModel
     @EnvironmentObject var lvm: SearchListVM
 
-
-    //bool로 파라미터값을 선언하고
     @State var showNextPage = false
     
     var body: some View {
@@ -32,24 +30,19 @@ struct WelcomeV_Previews: PreviewProvider {
         WelcomeV()
             .environmentObject(dev.currentWeatherVM)
             .environmentObject(SearchListVM())
-
     }
 }
 
 extension WelcomeV {
     private var contentsSection: some View {
         VStack (spacing: 30){
-            
             Text("Daily Weatherへようこそ")
                 .bold().font(.title)
-            
             Text("確認したい地域の地名をご記入ください")
                 .bold()
                 .padding()
-            
             Text("※ 都市名は英語でご記入お願い致します")
                 .font(.caption)
-        
             HStack{
                 SearchBar(searchText: $vm.searchText, searching: $searching)
                 

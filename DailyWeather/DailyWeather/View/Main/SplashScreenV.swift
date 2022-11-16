@@ -18,32 +18,10 @@ struct SplashScreenV: View {
         if isActive {
             WelcomeV()
         } else {
-            VStack{
-                VStack{
-                    Image(systemName: "globe")
-                        .font(.system(size: 80))
-                    Text("Daily Weather")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding()
-                }
-                .scaleEffect(size)
-                .opacity(opacity)
-                .onAppear {
-                    withAnimation(.easeIn(duration: 1.2)) {
-                        self.size = 0.9
-                        self.opacity = 1.0
-                    }
-                }
-            }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    self.isActive = true
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-            .foregroundColor(.white)
+            animationSection
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+                .foregroundColor(.white)
         }
         
         
@@ -51,6 +29,33 @@ struct SplashScreenV: View {
         
 }
 
+extension SplashScreenV {
+    private var animationSection: some View {
+        VStack{
+            VStack{
+                Image(systemName: "globe")
+                    .font(.system(size: 80))
+                Text("Daily Weather")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+            }
+            .scaleEffect(size)
+            .opacity(opacity)
+            .onAppear {
+                withAnimation(.easeIn(duration: 1.2)) {
+                    self.size = 0.9
+                    self.opacity = 1.0
+                }
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.isActive = true
+            }
+        }
+    }
+}
 struct SplashScreenV_Previews: PreviewProvider {
     static var previews: some View {
         SplashScreenV()
