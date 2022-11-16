@@ -24,7 +24,6 @@ struct WelcomeV: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
         .foregroundColor(.white)
-        
     }
 }
 
@@ -38,25 +37,6 @@ struct WelcomeV_Previews: PreviewProvider {
 }
 
 extension WelcomeV {
-    private var confirmBtn: some View {
-        Button{
-            showNextPage.toggle()
-            lvm.addItem(title: vm.searchText)
-            vm.getCurrentWeather(cityName: vm.searchText)
-        } label: {
-            Text("確認")
-        }
-        .padding()
-        .background(.white)
-        .foregroundColor(.blue)
-        .cornerRadius(13)
-        //파라미터로
-        .fullScreenCover(isPresented: $showNextPage) {
-            MainView2()
-                .environmentObject(vm)
-        }
-    }
-    
     private var contentsSection: some View {
         VStack (spacing: 30){
             
@@ -78,6 +58,25 @@ extension WelcomeV {
         }
         .multilineTextAlignment(.center)
         .padding()
+    }
+    
+    private var confirmBtn: some View {
+        Button{
+            showNextPage.toggle()
+            lvm.addItem(title: vm.searchText)
+            vm.getCurrentWeather(cityName: vm.searchText)
+        } label: {
+            Text("確認")
+        }
+        .padding()
+        .background(.white)
+        .foregroundColor(.blue)
+        .cornerRadius(13)
+        //파라미터로
+        .fullScreenCover(isPresented: $showNextPage) {
+            MainView2()
+                .environmentObject(vm)
+        }
     }
 }
 

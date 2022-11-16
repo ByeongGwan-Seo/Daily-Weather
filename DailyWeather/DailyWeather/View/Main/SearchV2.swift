@@ -77,10 +77,6 @@ struct SearchBar: View {
                     userSubmitted()
                     vm.getCurrentWeather(cityName: searchText)
                 }
-                //문제 발생 지점
-//                onSubmit {
-//                    userSubmitted()
-//                }
             }
             .foregroundColor(.gray)
             .padding(.horizontal, 13)
@@ -92,6 +88,7 @@ struct SearchBar: View {
     
     func userSubmitted() {
         lvm.addItem(title: searchText)
+        
     }
 }
 
