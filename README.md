@@ -31,9 +31,15 @@ Forecastは現在Currentに反映されている地域の天気予報が示さ�
 
 ## 3. 現在目標
 (22.11.15 基準)
-1. SearchVで利用者が入力した地域名をCurrentWeatherに反映させること   
-2. SearchVで利用者が入力した情報を画面のリストにセーブすること（UserDefaultか@AppStorage活用予定）
+1. ~SearchVで利用者が入力した地域名をCurrentWeatherに反映させること~   
+2. ~SearchVで利用者が入力した情報を画面のリストにセーブすること（UserDefaultか@AppStorage活用予定）~
 3. ForecastデータをForecast ビューに反映させること
 4. ネットワーク上で例外処理できるようにすること
 5. Currentの詳細情報をGridで示すこと
 
+(22.11.16)
+1. 利用者の検索履歴がアプリケーション再起動後にも維持できるようにUserDefaultや＠AppStorage活用
+2. SearchVの検索履歴リストでCurrentを変更できるように調整
+3. ForecastデータをForecast ビューに反映させること
+4. ネットワーク上で例外処理できるようにすること
+5. Currentの詳細情報をGridで示すこと 
