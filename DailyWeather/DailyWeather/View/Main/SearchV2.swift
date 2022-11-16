@@ -54,6 +54,7 @@ extension SearchV2 {
 
 struct SearchBar: View {
     @EnvironmentObject var lvm: SearchListVM
+    @EnvironmentObject var vm: CurrentWeatherViewModel
     @Binding var searchText: String
     @Binding var searching: Bool
     
@@ -72,6 +73,9 @@ struct SearchBar: View {
                     withAnimation {
                         searching = false
                     }
+                } .onSubmit {
+                    userSubmitted()
+                    vm.getCurrentWeather(cityName: searchText)
                 }
                 //문제 발생 지점
 //                onSubmit {

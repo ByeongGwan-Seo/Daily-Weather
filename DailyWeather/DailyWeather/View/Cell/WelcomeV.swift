@@ -53,7 +53,7 @@ extension WelcomeV {
         .foregroundColor(.blue)
         .cornerRadius(13)
         //파라미터로
-        .sheet(isPresented: $showNextPage) {
+        .fullScreenCover(isPresented: $showNextPage) {
             MainView2()
                 .environmentObject(vm)
         }
