@@ -16,7 +16,7 @@ struct SplashScreenV: View {
     var body: some View {
         
         if isActive {
-            WelcomeV()
+            WelcomeV(viewRouter: ViewRouter())
         } else {
             VStack{
                 VStack{

@@ -12,7 +12,7 @@ struct WelcomeV: View {
     @State var searching = false
     @EnvironmentObject var vm: CurrentWeatherViewModel
     @EnvironmentObject var lvm: SearchListVM
-
+    @StateObject var viewRouter: ViewRouter
 
     //bool로 파라미터값을 선언하고
     @State var showNextPage = false
@@ -29,7 +29,7 @@ struct WelcomeV: View {
 
 struct WelcomeV_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeV()
+        WelcomeV(viewRouter: ViewRouter())
             .environmentObject(dev.currentWeatherVM)
             .environmentObject(SearchListVM())
 
@@ -51,7 +51,7 @@ extension WelcomeV {
                 .font(.caption)
         
             HStack{
-                SearchBar(searchText: $vm.searchText, searching: $searching)
+                SearchBar(viewRouter: viewRouter, searchText: $vm.searchText, searching: $searching)
                 
                 confirmBtn
             }
@@ -74,7 +74,7 @@ extension WelcomeV {
         .cornerRadius(13)
         //파라미터로
         .fullScreenCover(isPresented: $showNextPage) {
-            MainView2()
+            MainView2(viewRouter: ViewRouter())
                 .environmentObject(vm)
         }
     }

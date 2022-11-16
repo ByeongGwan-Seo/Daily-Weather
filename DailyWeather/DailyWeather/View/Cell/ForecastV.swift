@@ -21,6 +21,7 @@ struct ForecastV: View {
 //        }
 //        .listStyle(.insetGrouped)
         
+        
     }
 }
 

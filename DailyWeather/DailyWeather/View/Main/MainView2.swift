@@ -11,7 +11,7 @@ struct MainView2: View {
     
     
     @EnvironmentObject var vm: CurrentWeatherViewModel
-    @State private var selectedMenu: Int = 1
+    @StateObject var viewRouter: ViewRouter
     
     var body: some View {
         
@@ -23,7 +23,7 @@ struct MainView2: View {
             
             ZStack {
                 VStack(spacing: 40) {
-                    Picker(selection: $selectedMenu) {
+                    Picker(selection: $viewRouter.selectedMenu) {
                         Text("Today").tag(1)
                             .font(.largeTitle)
                         Text("Forecast").tag(2)
@@ -34,15 +34,15 @@ struct MainView2: View {
                     .pickerStyle(.segmented)
                     .frame(width: 300)
                     
-                    switch selectedMenu {
+                    switch viewRouter.selectedMenu {
                     case 1:
-                        CurrentV2()
+                        CurrentV2(viewRouter: ViewRouter())
                     case 2:
-                        Text("forecast")
+                        ForecastV(cityName: vm.currentWeather?.name ?? "wrong city")
                     case 3:
-                        SearchV2()
+                        SearchV2(viewRouter: ViewRouter())
                     default:
-                        CurrentV2()
+                        CurrentV2(viewRouter: viewRouter)
                     }
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
@@ -71,12 +71,12 @@ struct MainView2: View {
 struct MainView2_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MainView2()
+            MainView2(viewRouter: ViewRouter())
                 .preferredColorScheme(.dark)
                 .previewInterfaceOrientation(.portrait)
                 .environmentObject(dev.currentWeatherVM)
 
-            MainView2()
+            MainView2(viewRouter: ViewRouter())
                 .previewInterfaceOrientation(.portrait)
                 .environmentObject(dev.currentWeatherVM)
 
@@ -87,7 +87,8 @@ struct MainView2_Previews: PreviewProvider {
 struct CurrentV2: View {
     
     @EnvironmentObject var vm: CurrentWeatherViewModel
-    
+    @StateObject var viewRouter: ViewRouter
+
     var body: some View {
         
         if let currentWeather2 = vm.currentWeather {

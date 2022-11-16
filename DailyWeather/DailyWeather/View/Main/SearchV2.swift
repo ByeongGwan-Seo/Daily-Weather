@@ -11,6 +11,7 @@ struct SearchV2: View {
     
     @EnvironmentObject var vm: CurrentWeatherViewModel
     @EnvironmentObject var lvm: SearchListVM
+    @StateObject var viewRouter: ViewRouter
     @State var searching = false
     @State var searchText = ""
     
@@ -22,7 +23,7 @@ struct SearchV2: View {
 
 struct SearchV2_Previews: PreviewProvider {
     static var previews: some View {
-        SearchV2()
+        SearchV2(viewRouter: ViewRouter())
             .preferredColorScheme(.dark)
             .environmentObject(dev.currentWeatherVM)
             .environmentObject(SearchListVM())
@@ -32,7 +33,7 @@ struct SearchV2_Previews: PreviewProvider {
 extension SearchV2 {
     private var listSection:some View {
         VStack(spacing: 30) {
-            SearchBar(searchText: $vm.searchText, searching: $searching)
+            SearchBar(viewRouter: viewRouter, searchText: $vm.searchText, searching: $searching)
             Text("検索履歴")
                 .font(.largeTitle)
                 .fontWeight(.bold)
@@ -55,6 +56,7 @@ extension SearchV2 {
 struct SearchBar: View {
     @EnvironmentObject var lvm: SearchListVM
     @EnvironmentObject var vm: CurrentWeatherViewModel
+    @StateObject var viewRouter: ViewRouter
     @Binding var searchText: String
     @Binding var searching: Bool
     
@@ -76,6 +78,7 @@ struct SearchBar: View {
                 } .onSubmit {
                     userSubmitted()
                     vm.getCurrentWeather(cityName: searchText)
+                    viewRouter.selectedMenu = 1
                 }
             }
             .foregroundColor(.gray)
