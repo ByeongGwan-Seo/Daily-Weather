@@ -73,9 +73,10 @@ struct SearchBar: View {
                         searching = false
                     }
                 }
-                onSubmit {
-                    userSubmitted()
-                }
+                //문제 발생 지점
+//                onSubmit {
+//                    userSubmitted()
+//                }
             }
             .foregroundColor(.gray)
             .padding(.horizontal, 13)

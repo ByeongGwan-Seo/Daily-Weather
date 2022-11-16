@@ -11,6 +11,8 @@ struct WelcomeV: View {
     
     @State var searching = false
     @EnvironmentObject var vm: CurrentWeatherViewModel
+    @EnvironmentObject var lvm: SearchListVM
+
 
     //bool로 파라미터값을 선언하고
     @State var showNextPage = false
@@ -30,6 +32,8 @@ struct WelcomeV_Previews: PreviewProvider {
     static var previews: some View {
         WelcomeV()
             .environmentObject(dev.currentWeatherVM)
+            .environmentObject(SearchListVM())
+
     }
 }
 
@@ -78,13 +82,4 @@ extension WelcomeV {
         .padding()
     }
 }
-////error타입 정의
-//enum TestError: Error {
-//    case text_nil
-//}
-////예외 처리 오류가 나는 조건
-//func getNextViewAndThrows(inputText: String) throws -> Int {
-//    guard inputText != nil else {
-//        throw TestError.text_nil
-//    }
-//}
+
