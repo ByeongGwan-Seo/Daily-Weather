@@ -17,9 +17,9 @@ class SearchListVM: ObservableObject {
     
     func getItems() {
         let newItems = [
-            SearchListM(title: "Seoul"),
-            SearchListM(title: "Tokyo"),
-            SearchListM(title: "메우...")
+            SearchListM(title: NSLocalizedString("search_list_item_1", comment: "Seoul")),
+            SearchListM(title: NSLocalizedString("search_list_item_2", comment: "Tokyo")),
+            SearchListM(title: NSLocalizedString("search_list_item_3", comment: "Osaka")),
         ]
         listItems.append(contentsOf: newItems)
     }

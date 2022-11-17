@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  DailyWeather
+
+  Created by snowman on 2022/11/17.
+  
+*/
+
+"bad_url_response_message" = "URL からの不適切な応答";
+"unknown_network_error_message" = "不明なエラーが発生しました";
+"search_list_item_1" = "ソウル";
+"search_list_item_2" = "東京";
+"search_list_item_3" = "大阪";
