@@ -19,10 +19,7 @@ struct ForecastV: View {
     var body: some View {
         Text("TODO")
         
-        let currentWeather = cvm.currentWeather
-//        let forecastWeather = vm.forecast
-
-        Text(currentWeather?.name ?? "none")
+        
         
     }
 }

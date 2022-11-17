@@ -40,6 +40,8 @@ class NetworkingManager {
         return output.data
     }
     
+    
+    
     static func handleCompletion(completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
