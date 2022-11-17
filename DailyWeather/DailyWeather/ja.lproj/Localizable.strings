@@ -8,6 +8,7 @@
 
 "bad_url_response_message" = "URL からの不適切な応答";
 "unknown_network_error_message" = "不明なエラーが発生しました";
-"search_list_item_1" = "ソウル";
-"search_list_item_2" = "東京";
-"search_list_item_3" = "大阪";
+"welcome_main_title" = "Daily Weatherへようこそ";
+"welcome_confirm_title" = "確認したい地域の地名をご記入ください";
+"welcome_caution_description" = "※ 都市名は英語でご記入お願い致します";
+"welcome_confirm_button_title" = "確認";

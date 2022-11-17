@@ -11,3 +11,7 @@
 "search_list_item_1" = "Seoul";
 "search_list_item_2" = "Tokyo";
 "search_list_item_3" = "Osaka";
+"welcome_main_title" = "welcome to Daily Weather";
+"welcome_confirm_title" = "Please enter the name of the area you want to check";
+"welcome_caution_description" = "※ Please enter the city name in English";
+"welcome_confirm_button_title" = "confirm";
