@@ -9,20 +9,17 @@ import Foundation
 import SwiftUI
 
 class SearchListVM: ObservableObject {
-    
     @Published var listItems: [SearchListM] = [] {
         didSet {
             saveItem()
         }
     }
     
-    
     init() {
         getItems()
     }
     
     func getItems() {
-
         guard
             let data = UserDefaults.standard.data(forKey: "savedData"),
             let savedItems = try? JSONDecoder().decode([SearchListM].self, from: data)
@@ -47,6 +44,4 @@ class SearchListVM: ObservableObject {
             UserDefaults.standard.set(encodedData, forKey: "savedData")
         }
     }
-    
-    
 }
