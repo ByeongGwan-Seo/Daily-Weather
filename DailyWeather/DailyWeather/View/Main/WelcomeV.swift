@@ -36,12 +36,12 @@ struct WelcomeV_Previews: PreviewProvider {
 extension WelcomeV {
     private var contentsSection: some View {
         VStack (spacing: 30){
-            Text("Daily Weatherへようこそ")
+            Text("welcome_main_title")
                 .bold().font(.title)
-            Text("確認したい地域の地名をご記入ください")
+            Text("welcome_confirm_title")
                 .bold()
                 .padding()
-            Text("※ 都市名は英語でご記入お願い致します")
+            Text("welcome_caution_description")
                 .font(.caption)
             HStack{
                 SearchBar(searchText: $vm.searchText, searching: $searching)
@@ -59,7 +59,7 @@ extension WelcomeV {
             lvm.addItem(title: vm.searchText)
             vm.getCurrentWeather(cityName: vm.searchText)
         } label: {
-            Text("確認")
+            Text("welcome_confirm_button_title")
         }
         .padding()
         .background(.white)
