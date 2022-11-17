@@ -38,7 +38,9 @@ extension SearchV2 {
                 .fontWeight(.bold)
             List {
                 ForEach(lvm.listItems) { item in
-                    SearchListRowV(item: item)
+                    SearchListRowV(item: item, clickRow: {
+                        vm.getCurrentWeather(cityName: item.title)
+                    })
                 }
                 .onDelete(perform: lvm.deleteItem)
             }
