@@ -78,6 +78,7 @@ struct SearchBar: View {
                 } .onSubmit {
                     userSubmitted()
                     vm.getCurrentWeather(cityName: searchText)
+                    
                 }
             }
             .foregroundColor(.gray)
