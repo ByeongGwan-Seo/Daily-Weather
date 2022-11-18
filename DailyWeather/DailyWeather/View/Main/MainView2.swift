@@ -50,6 +50,8 @@ struct MainView2: View {
         }
     }
     
+    
+    
     func weatherBackground(weather: String) -> [Color] {
         switch weather {
         case "Clear":
