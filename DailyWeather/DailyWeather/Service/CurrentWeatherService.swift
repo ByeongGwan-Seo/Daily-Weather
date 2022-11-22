@@ -12,7 +12,7 @@ class CurrentWeatherService {
     
     @Published var weatherInfo: WeatherInformation?
     
-    private var coinSubscription: AnyCancellable?
+    private var subscription: AnyCancellable?
 
     init(cityName: String) {
         getCurrentWeather(cityName: cityName)
@@ -21,11 +21,11 @@ class CurrentWeatherService {
     func getCurrentWeather(cityName: String) {
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=62cbe212a87167152e0493c513f437c7") else { return }
         
-        coinSubscription = NetworkingManager.download(url: url)
+        subscription = NetworkingManager.download(url: url)
             .decode(type: WeatherInformation.self, decoder: JSONDecoder())
             .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] weatherInfo in
                 self?.weatherInfo = weatherInfo
-                self?.coinSubscription?.cancel()
+                self?.subscription?.cancel()
             })
     }
 }

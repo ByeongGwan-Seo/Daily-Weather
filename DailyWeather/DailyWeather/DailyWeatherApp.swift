@@ -13,12 +13,14 @@ struct DailyWeatherApp: App {
     
     @StateObject var vm = CurrentWeatherViewModel()
     @StateObject var listVm: SearchListVM = SearchListVM()
-
+    @StateObject var foreVm: ForeCastViewModel = ForeCastViewModel()
+    
     var body: some Scene {
         WindowGroup {
             SplashScreenV()
                 .environmentObject(vm)
                 .environmentObject(listVm)
+                .environmentObject(foreVm)
         }
     }
 }

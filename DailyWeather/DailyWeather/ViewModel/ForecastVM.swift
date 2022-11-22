@@ -14,7 +14,7 @@ final class ForeCastViewModel: ObservableObject {
     private let forecastService: ForecastService
     private var cancellables = Set<AnyCancellable>()
     
-    init(cityName: String) {
+    init(cityName: String = "Tokyo") {
         self.forecastService = ForecastService(cityName: cityName)
         self.addSubscribers()
     }
@@ -26,5 +26,21 @@ final class ForeCastViewModel: ObservableObject {
                 self?.forecast = returnedForecast
             })
             .store(in: &cancellables)
+    }
+    
+    func getForecastweather(cityName: String) {
+        forecastService.getForecast(cityName: cityName)
+    }
+    
+    func getMinTempCelcius(minTemp: Double) -> String{
+        let minTempK: Double = forecastService.forecastInfo?.list?.first?.main?.tempMin ?? 0
+        let minTemp: String = String(format: "%.1f", minTempK - 273.15)
+        return minTemp
+    }
+    
+    func getMaxTempCelcius(maxTemp: Double) -> String {
+        let maxTempK: Double = forecastService.forecastInfo?.list?.first?.main?.tempMax ?? 0
+        let maxTemp: String = String(format: "%.1f", maxTempK - 273.15)
+        return maxTemp
     }
 }

@@ -9,21 +9,33 @@ import SwiftUI
 
 struct ForecastVRow: View {
     
-    @StateObject var vm: ForeCastViewModel
+    @EnvironmentObject var vm: ForeCastViewModel
     
-    init(cityName: String) {
-        _vm = StateObject(wrappedValue: ForeCastViewModel(cityName: cityName))
-    }
     
     var body: some View {
-        Text("TODO")
-
+        VStack {
+            if let forecastWeather = vm.forecast {
+                let maxTempK: Double = forecastWeather.list?.first?.main?.tempMax ?? 0
+                let minTempK: Double = forecastWeather.list?.first?.main?.tempMin ?? 0
+                let maxTemp: String = String(format: "%.1f", maxTempK - 273.15)
+                let minTemp: String = String(format: "%.1f", minTempK - 273.15)
+                let city = forecastWeather.city?.name ?? ""
+//
+                VStack {
+                    Text(maxTemp)
+                    Text(minTemp)
+                    Text(city)
+                }
+            }
+//            Text(vm.getMaxTempCelcius(maxTemp: <#T##Double#>))
+//            Text(vm.getMinTempCelcius(minTemp: <#T##Double#>))
+        }
     }
 }
 
 struct ForecastVRow_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastVRow(cityName: "seoul")
+        ForecastVRow()
             .previewLayout(.fixed(width: 390, height: 80))
     }
 }

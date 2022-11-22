@@ -11,6 +11,7 @@ struct SearchV2: View {
     
     @EnvironmentObject var vm: CurrentWeatherViewModel
     @EnvironmentObject var lvm: SearchListVM
+    @EnvironmentObject var foreVm: ForeCastViewModel
     @State var searching = false
     @State var searchText = ""
     
@@ -26,6 +27,7 @@ struct SearchV2_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
             .environmentObject(dev.currentWeatherVM)
             .environmentObject(SearchListVM())
+            .environmentObject(ForeCastViewModel())
     }
 }
 
@@ -40,6 +42,7 @@ extension SearchV2 {
                 ForEach(lvm.listItems) { item in
                     SearchListRowV(item: item, clickRow: {
                         vm.getCurrentWeather(cityName: item.title)
+                        foreVm.getForecastweather(cityName: item.title)
                     })
                 }
                 .onDelete(perform: lvm.deleteItem)
@@ -57,6 +60,7 @@ extension SearchV2 {
 struct SearchBar: View {
     @EnvironmentObject var lvm: SearchListVM
     @EnvironmentObject var vm: CurrentWeatherViewModel
+    @EnvironmentObject var fvm: ForeCastViewModel
     @Binding var searchText: String
     @Binding var searching: Bool
     
@@ -78,7 +82,7 @@ struct SearchBar: View {
                 } .onSubmit {
                     userSubmitted()
                     vm.getCurrentWeather(cityName: searchText)
-                    
+                    fvm.getForecastweather(cityName: searchText)
                 }
             }
             .foregroundColor(.gray)
