@@ -11,6 +11,10 @@ struct ForecastVRow: View {
     
     @EnvironmentObject var vm: ForeCastViewModel
     
+    let weather: String
+    let humidity: Int
+    let feelsLike: Double
+    let windSpeed: Double
     
     var body: some View {
         ScrollView {
@@ -23,15 +27,16 @@ struct ForecastVRow: View {
     }
 }
 
-struct ForecastVRow_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        ForecastVRow()
-            .environmentObject(dev.forecastWeatherVM)
-    }
-}
+//struct ForecastVRow_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        ForecastVRow(weather: vm.forecast?.list?.first., humidity: <#T##Int#>, feelsLike: <#T##Double#>, windSpeed: <#T##Double#>)
+//            .environmentObject(dev.forecastWeatherVM)
+//    }
+//}
 
 extension ForecastVRow {
+
     private var rowSection: some View {
         VStack {
             HStack {

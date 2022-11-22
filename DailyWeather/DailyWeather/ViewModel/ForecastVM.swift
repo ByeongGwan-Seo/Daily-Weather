@@ -32,10 +32,13 @@ final class ForeCastViewModel: ObservableObject {
         forecastService.getForecast(cityName: cityName)
     }
     
-    func getMinTempCelcius() -> String{
-        let minTempK: Double = forecastService.forecastInfo?.list?.first?.main?.tempMin ?? 0
-        let minTemp: String = String(format: "%.1f", minTempK - 273.15)
-        return minTemp
+    func getMinTempCelcius(index: Int) -> String{
+        if let index = forecastService.forecastInfo?.list?[index] {
+            let minTempK: Double = index.main?.tempMin ?? 0
+            let minTemp: String = String(format: "%.1f", minTempK - 273.15)
+            
+            return minTemp
+        }
     }
     
     func getMaxTempCelcius() -> String {
