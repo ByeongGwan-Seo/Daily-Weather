@@ -14,7 +14,6 @@ struct CurrentDetailV: View {
     var cityName: String
     
     var body: some View {
-        
         detailArea
     }
 }
@@ -37,7 +36,6 @@ extension CurrentDetailV {
     private var detailRowTop: some View {
         HStack(spacing: 25) {
             CurrenDetailCell(systemName: "person.fill", description: "Feels Like", function: vm.getCurrentFeelTemp(cityName: cityName))
-            
             CurrenDetailCell(systemName: "humidity", description: "Humidity", function: vm.getCurrentFeelTemp(cityName: cityName))
         } 
     }
