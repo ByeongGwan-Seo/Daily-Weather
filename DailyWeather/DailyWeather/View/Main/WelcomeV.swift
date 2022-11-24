@@ -12,6 +12,7 @@ struct WelcomeV: View {
     @State var searching = false
     @EnvironmentObject var vm: CurrentWeatherViewModel
     @EnvironmentObject var lvm: SearchListVM
+    @EnvironmentObject var foreVM: ForeCastViewModel
 
     @State var showNextPage = false
     
@@ -30,6 +31,7 @@ struct WelcomeV_Previews: PreviewProvider {
         WelcomeV()
             .environmentObject(dev.currentWeatherVM)
             .environmentObject(SearchListVM())
+            .environmentObject(ForeCastViewModel())
     }
 }
 
@@ -58,6 +60,7 @@ extension WelcomeV {
             showNextPage.toggle()
             lvm.addItem(title: vm.searchText)
             vm.getCurrentWeather(cityName: vm.searchText)
+            foreVM.getForecastweather(cityName: vm.searchText)
         } label: {
             Text("welcome_confirm_button_title")
         }

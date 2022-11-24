@@ -11,6 +11,7 @@ struct MainView2: View {
     
     
     @EnvironmentObject var vm: CurrentWeatherViewModel
+    @EnvironmentObject var foreVm: ForeCastViewModel
     @State private var selectedMenu: Int = 1
     
     var body: some View {
@@ -38,7 +39,7 @@ struct MainView2: View {
                     case 1:
                         CurrentV2()
                     case 2:
-                        Text("forecast")
+                        ForecastV()
                     case 3:
                         SearchV2()
                     default:
