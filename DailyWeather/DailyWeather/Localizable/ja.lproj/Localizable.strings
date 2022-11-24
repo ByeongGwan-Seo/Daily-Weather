@@ -1,13 +1,16 @@
 /* 
-  Localizable.strings
+  English.strings
   DailyWeather
 
-  Created by snowman on 2022/11/17.
+  Created by 金峻聖 on 2022/11/24.
   
 */
 
 "bad_url_response_message" = "URL からの不適切な応答";
 "unknown_network_error_message" = "不明なエラーが発生しました";
+"search_list_item_1" = "Seoul";
+"search_list_item_2" = "Tokyo";
+"search_list_item_3" = "Osaka";
 "welcome_main_title" = "Daily Weatherへようこそ";
 "welcome_confirm_title" = "確認したい地域の地名をご記入ください";
 "welcome_caution_description" = "※ 都市名は英語でご記入お願い致します";

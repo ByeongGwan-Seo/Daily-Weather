@@ -36,7 +36,7 @@ struct WelcomeV_Previews: PreviewProvider {
 extension WelcomeV {
     private var contentsSection: some View {
         VStack (spacing: 30){
-            Text("welcome_main_title")
+            Text(L10n.Localizable.welcomeMainTitle)
                 .bold().font(.title)
             Text("welcome_confirm_title")
                 .bold()

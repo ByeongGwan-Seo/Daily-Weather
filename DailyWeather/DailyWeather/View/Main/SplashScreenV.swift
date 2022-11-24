@@ -33,7 +33,7 @@ extension SplashScreenV {
     private var animationSection: some View {
         VStack{
             VStack{
-                Image(systemName: "globe")
+                Image(systemName: L10n.Resources.Image.globe)
                     .font(.system(size: 80))
                 Text("Daily Weather")
                     .font(.largeTitle)
