@@ -9,24 +9,23 @@ import SwiftUI
 
 struct ForecastV: View {
     
-    @StateObject var vm: ForeCastViewModel
-    @EnvironmentObject var cvm: CurrentWeatherViewModel
-    
-    init(cityName: String) {
-        _vm = StateObject(wrappedValue: ForeCastViewModel(cityName: cityName))
-    }
+    @EnvironmentObject var vm: ForeCastViewModel
     
     var body: some View {
-        Text("TODO")
-        
-        
-        
+        ScrollView {
+            ForecastVRow(index: 7)
+            ForecastVRow(index: 15)
+            ForecastVRow(index: 23)
+            ForecastVRow(index: 31)
+            ForecastVRow(index: 39)
+        }
     }
 }
 
 struct ForecastV_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastV(cityName: "Seoul")
+        ForecastV()
             .environmentObject(dev.currentWeatherVM)
+            .environmentObject(ForeCastViewModel())
     }
 }

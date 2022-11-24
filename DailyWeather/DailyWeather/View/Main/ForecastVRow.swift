@@ -11,19 +11,13 @@ struct ForecastVRow: View {
     
     @EnvironmentObject var vm: ForeCastViewModel
     
-    let weather: String
-    let humidity: Int
-    let feelsLike: Double
-    let windSpeed: Double
     
+    var index: Int
+
     var body: some View {
-        ScrollView {
+        
             rowSection
-            rowSection
-            rowSection
-            rowSection
-            rowSection
-        }
+       
     }
 }
 
@@ -37,20 +31,24 @@ struct ForecastVRow: View {
 
 extension ForecastVRow {
 
+
     private var rowSection: some View {
+        
         VStack {
             HStack {
                 Spacer()
                 Text("대충날짜")
                     .font(.headline)
                 Spacer()
-                Image(systemName: "sun.max.fill")
+                vm.getForecastMainDesc(index: index)
+                    .renderingMode(.original)
                     .resizable()
+                    .scaledToFit()
                     .frame(width: 50, height: 50)
                 Spacer()
-                Text(vm.getMinTempCelcius() + "°")
+                Text(vm.getMinTempCelcius(index: index))
                 Text("/")
-                Text(vm.getMaxTempCelcius() + "°")
+                Text(vm.getMaxTempCelcius(index: index))
                 Spacer()
             }
             .padding(.horizontal)
@@ -58,17 +56,17 @@ extension ForecastVRow {
             HStack {
                 VStack(spacing: 10) {
                     Text("湿度")
-                    Text("sidou")
+                    Text(vm.getForecastHumidity(index: index))
                 }
                 Spacer()
                 VStack(spacing: 10) {
                     Text("体感温度")
-                    Text("몇도")
+                    Text(vm.getForecastFeelsLike(index: index))
                 }
                 Spacer()
                 VStack(spacing: 10) {
                     Text("風速")
-                    Text("10.2m/s")
+                    Text(vm.getForecastWindSpeed(index: index))
                 }
             }
             .padding(.horizontal, 20)
@@ -79,5 +77,23 @@ extension ForecastVRow {
         .cornerRadius(30)
         .padding()
         .shadow(color: Color.black, radius: 5, x: 0, y: 5)
+    }
+    
+    func weatherImage(weather: String) -> Image {
+        switch weather {
+        case "Clear":
+            return Image(systemName: "sun.max.fill")
+        case "Clouds":
+            return Image(systemName: "cloud.fill")
+        case "Rain":
+            return Image(systemName: "cloud.rain.fill")
+        case "Snow":
+            return Image(systemName: "cloud.snow.fill")
+        case "Extreme":
+            return Image(systemName: "cloud.bolt.fill")
+        default:
+            return Image(systemName: "sun.max.fill")
+            
+        }
     }
 }

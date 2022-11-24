@@ -39,7 +39,7 @@ struct MainView2: View {
                     case 1:
                         CurrentV2()
                     case 2:
-                        ForecastVRow()
+                        ForecastV()
                     case 3:
                         SearchV2()
                     default:
