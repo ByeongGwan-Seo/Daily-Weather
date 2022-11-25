@@ -35,15 +35,17 @@ struct MainView2: View {
                     .pickerStyle(.segmented)
                     .frame(width: 300)
                     
-                    switch selectedMenu {
-                    case 1:
-                        CurrentV2()
-                    case 2:
-                        ForecastV()
-                    case 3:
-                        SearchV2()
-                    default:
-                        CurrentV2()
+                    ScrollView(showsIndicators: false) {
+                        switch selectedMenu {
+                        case 1:
+                            CurrentV2()
+                        case 2:
+                            ForecastV()
+                        case 3:
+                            SearchV2()
+                        default:
+                            CurrentV2()
+                        }
                     }
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
