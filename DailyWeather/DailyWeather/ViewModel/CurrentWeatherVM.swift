@@ -101,4 +101,40 @@ class CurrentWeatherViewModel: ObservableObject {
             return [Color(#colorLiteral(red: 0, green: 0.649317205, blue: 0.933945477, alpha: 1)), Color(#colorLiteral(red: 0.3848685026, green: 0.8256501555, blue: 0.7817828059, alpha: 1))]
         }
     }
+    
+    func getCurrentHumidity(cityName: String) -> String {
+        let humidity: String = String(currentWeatherService.weatherInfo?.main?.humidity ?? 0)
+        
+        return humidity + "%"
+    }
+    
+    func getCurrentPressure(cityName: String) -> String {
+        let pressure: String = String(currentWeatherService.weatherInfo?.main?.pressure ?? 0)
+        
+        return pressure + "hPa"
+    }
+    
+    func getCurrentWindSpeed(cityName: String) -> String {
+        let windSpeed: String = String(currentWeatherService.weatherInfo?.wind?.speed ?? 0)
+        
+        return windSpeed + "m/s"
+    }
+    
+    func getCurrentSunrise(cityName: String) -> String {
+        let sunRiseUnix = Date(timeIntervalSince1970: TimeInterval(currentWeatherService.weatherInfo?.sys?.sunrise ?? 0))
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd : HH : mm"
+        let result = formatter.string(from: sunRiseUnix)
+        
+        return result
+    }
+    
+    func getCurrentSunset(cityName: String) -> String {
+        let sunSetUnix = Date(timeIntervalSince1970: TimeInterval(currentWeatherService.weatherInfo?.sys?.sunset ?? 0))
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd : HH : mm"
+        let result = formatter.string(from: sunSetUnix)
+        
+        return result
+    }
 }

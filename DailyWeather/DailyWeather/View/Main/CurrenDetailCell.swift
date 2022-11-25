@@ -17,7 +17,7 @@ struct CurrenDetailCell: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .center) {
+            HStack(alignment: .center, spacing: 15) {
                 Image(systemName: systemName)
                     .resizable()
                     .scaledToFit()
@@ -25,10 +25,12 @@ struct CurrenDetailCell: View {
                 Text(description)
                     .font(.subheadline)
             }
+            .multilineTextAlignment(.leading)
+
             Divider()
             Spacer()
             Text(function)
-                .font(.largeTitle)
+                .font(.title)
             Spacer()
         }
         .frame(width: 120, height:120)
