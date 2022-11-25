@@ -28,7 +28,7 @@ class SearchListVM: ObservableObject {
         self.listItems = savedItems
 
     }
-    //ddd
+
     func deleteItem(indexSet: IndexSet) {
         listItems.remove(atOffsets: indexSet)
         saveItem()

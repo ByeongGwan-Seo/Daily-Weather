@@ -49,8 +49,8 @@ extension ForecastVRow {
     private var topRow: some View {
         HStack {
             Spacer()
-            Text("대충날짜")
-                .font(.headline)
+            Text(vm.getForecastDate(index: index))
+                .fontWeight(.bold)
             Spacer()
             vm.getForecastMainDesc(index: index)
                 .renderingMode(.original)

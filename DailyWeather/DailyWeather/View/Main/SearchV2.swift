@@ -42,7 +42,7 @@ extension SearchV2 {
                 ForEach(lvm.listItems) { item in
                     SearchListRowV(item: item, clickRow: {
                         vm.getCurrentWeather(cityName: item.title)
-                        foreVm.getForecastweather(cityName: item.title)
+                        foreVm.getForecastweather(cityName: item.title) 
                     })
                 }
                 .onDelete(perform: lvm.deleteItem)

@@ -133,4 +133,42 @@ final class ForeCastViewModel: ObservableObject {
             return [Color(#colorLiteral(red: 0, green: 0.649317205, blue: 0.933945477, alpha: 1)), Color(#colorLiteral(red: 0.3848685026, green: 0.8256501555, blue: 0.7817828059, alpha: 1))]
         }
     }
+    
+    func getForecastDate(index: Int) -> String {
+        guard let index = forecastService.forecastInfo?.list?[index] else {
+            return ""
+        }
+        
+        let date = index.dtTxt ?? ""
+        let stringDate = date.toDate() ?? Date()
+        let dateString = stringDate.toString()
+        
+        return dateString
+    }
+}
+
+extension String {
+    func toDate() -> Date? { //"yyyy-MM-dd HH:mm:ss"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let timeZone = TimeZone.current
+        let timeZoneIdentifier = timeZone.identifier
+        dateFormatter.timeZone = TimeZone(identifier: timeZoneIdentifier)
+        if let date = dateFormatter.date(from: self) {
+            return date
+        } else {
+            return nil
+        }
+    }
+}
+
+extension Date {
+    func toString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM / dd"
+        let timeZone = TimeZone.current
+        let timeZoneIdentifier = timeZone.identifier
+        dateFormatter.timeZone = TimeZone(identifier: timeZoneIdentifier)
+        return dateFormatter.string(from: self)
+    }
 }
