@@ -21,6 +21,7 @@ struct CurrentDetailV: View {
 struct CurrentDetailV_Previews: PreviewProvider {
     static var previews: some View {
         CurrentDetailV(cityName: "Tokyo")
+            .preferredColorScheme(.dark)
             .environmentObject(CurrentWeatherViewModel())
     }
 }

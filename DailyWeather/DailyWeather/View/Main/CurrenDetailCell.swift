@@ -16,22 +16,26 @@ struct CurrenDetailCell: View {
     var function: String
     
     var body: some View {
-        HStack(spacing: 20) {
-            Image(systemName: systemName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 40, height: 120)
-            VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading) {
+            HStack(alignment: .center) {
+                Image(systemName: systemName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
                 Text(description)
-                    .font(.title3)
-                Text(function)
-                    .font(.title2)
+                    .font(.subheadline)
             }
+            Divider()
+            Spacer()
+            Text(function)
+                .font(.largeTitle)
+            Spacer()
         }
-        .frame(width: 140, height:140)
+        .frame(width: 120, height:120)
         .padding()
-        .background(Color.white)
-        .foregroundColor(Color.black)
+        .foregroundColor(Color.primary)
+        .background(Color.secondary)
+        .background(.thinMaterial)
         .cornerRadius(20)
     }
 }
