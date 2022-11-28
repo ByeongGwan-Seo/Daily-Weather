@@ -53,6 +53,12 @@ extension SearchV2 {
             .padding()
             .listStyle(.plain)
             .foregroundColor(Color.primary)
+            Button {
+                lvm.deleteAll()
+            } label: {
+                Text("Delete All")
+            }
+
         }
     }
 }

@@ -34,6 +34,11 @@ class SearchListVM: ObservableObject {
         saveItem()
     }
     
+    func deleteAll() {
+        listItems.removeAll()
+        saveItem()
+    }
+    
     func addItem(title: String) {
         let newItem = SearchListM(title: title)
         listItems.append(newItem)
