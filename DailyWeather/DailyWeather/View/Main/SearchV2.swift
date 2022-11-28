@@ -76,6 +76,8 @@ struct SearchBar: View {
     @EnvironmentObject var fvm: ForeCastViewModel
     @Binding var searchText: String
     @Binding var searching: Bool
+    @State var showAlert: Bool = false
+    @State var alertTitle: String = ""
     
     var body: some View {
         ZStack {
@@ -104,11 +106,24 @@ struct SearchBar: View {
         .frame(height: 40)
         .cornerRadius(13)
         .padding()
+        .alert(alertTitle, isPresented: $showAlert){
+            
+        }
     }
     
     func userSubmitted() {
-        lvm.addItem(title: searchText)
-        
+        if isInfoAppropriate() {
+            lvm.addItem(title: searchText)
+        }
+    }
+    
+    func isInfoAppropriate() -> Bool {
+        if searchText.count < 2 {
+            alertTitle = "Inappropriate Search Text(at least 2 characters"
+            showAlert.toggle()
+            return false
+        }
+        return true
     }
 }
 
