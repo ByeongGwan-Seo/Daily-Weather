@@ -179,6 +179,7 @@
 		0631C9EB28E359830075D03A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				06E04DD229343C42000807FA /* Component */,
 				0631C9EE28E359EC0075D03A /* Main */,
 			);
 			path = View;
@@ -208,16 +209,23 @@
 			isa = PBXGroup;
 			children = (
 				06831B9F29124663008BA4A3 /* ForecastV.swift */,
-				06831B9D291242E7008BA4A3 /* ForecastVRow.swift */,
 				0631CA08290828730075D03A /* WelcomeV.swift */,
 				0631CA0A2910B2EA0075D03A /* SplashScreenV.swift */,
 				06831C22291CDF53008BA4A3 /* MainView2.swift */,
 				06CD878B292F474200D3BEE4 /* CurrentDetailV.swift */,
-				06CD878D292F50D800D3BEE4 /* CurrenDetailCell.swift */,
 				06CD8727292324DA00D3BEE4 /* SearchV2.swift */,
-				06CD872D2923807600D3BEE4 /* SearchListRowV.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		06E04DD229343C42000807FA /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				06CD872D2923807600D3BEE4 /* SearchListRowV.swift */,
+				06CD878D292F50D800D3BEE4 /* CurrenDetailCell.swift */,
+				06831B9D291242E7008BA4A3 /* ForecastVRow.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		F74C650A292F4EDF00C43089 /* Localizable */ = {
