@@ -33,7 +33,7 @@ struct SearchV2_Previews: PreviewProvider {
 
 extension SearchV2 {
     private var listSection:some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 10) {
             SearchBar(searchText: $vm.searchText, searching: $searching)
             Text("検索履歴")
                 .font(.largeTitle)
@@ -57,7 +57,14 @@ extension SearchV2 {
                 lvm.deleteAll()
             } label: {
                 Text("Delete All")
+                    .fontWeight(.bold)
+                    .font(.headline)
+                    .foregroundColor(.red)
+                    .frame(width: 150, height: 55)
+                    .background(Color.white)
+                    .cornerRadius(20)
             }
+            
 
         }
     }
