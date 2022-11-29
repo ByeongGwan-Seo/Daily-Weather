@@ -63,6 +63,7 @@ extension WelcomeV {
             lvm.addItem(title: vm.searchText)
             vm.getCurrentWeather(cityName: vm.searchText)
             foreVM.getForecastweather(cityName: vm.searchText)
+            vm.searchText = ""
         } label: {
             Text("welcome_confirm_button_title")
         }

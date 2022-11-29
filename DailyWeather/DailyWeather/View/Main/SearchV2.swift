@@ -98,6 +98,7 @@ struct SearchBar: View {
                     userSubmitted()
                     vm.getCurrentWeather(cityName: searchText)
                     fvm.getForecastweather(cityName: searchText)
+                    searchText = ""
                 }
             }
             .foregroundColor(.gray)
