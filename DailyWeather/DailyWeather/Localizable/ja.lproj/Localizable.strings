@@ -8,10 +8,15 @@
 
 "bad_url_response_message" = "URL からの不適切な応答";
 "unknown_network_error_message" = "不明なエラーが発生しました";
-"search_list_item_1" = "Seoul";
-"search_list_item_2" = "Tokyo";
-"search_list_item_3" = "Osaka";
+"splash_title" = "Daily Weather";
 "welcome_main_title" = "Daily Weatherへようこそ";
 "welcome_confirm_title" = "確認したい地域の地名をご記入ください";
 "welcome_caution_description" = "※ 都市名は英語でご記入お願い致します";
 "welcome_confirm_button_title" = "確認";
+"weather_humidity" = "湿度";
+"weather_feelsLike" = "体感温度";
+"weather_atmoPress" = "気圧";
+"weather_windSpeed" = "風速";
+"weather_sunRise" = "日の出";
+"weather_sunSet" = "日の入";
+"search_history" = "検索履歴";

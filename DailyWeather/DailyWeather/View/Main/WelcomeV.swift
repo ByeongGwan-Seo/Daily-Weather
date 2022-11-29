@@ -42,10 +42,10 @@ extension WelcomeV {
         VStack (spacing: 30){
             Text(L10n.Localizable.welcomeMainTitle)
                 .bold().font(.title)
-            Text("welcome_confirm_title")
+            Text(L10n.Localizable.welcomeConfirmTitle)
                 .bold()
                 .padding()
-            Text("welcome_caution_description")
+            Text(L10n.Localizable.welcomeCautionDescription)
                 .font(.caption)
             HStack{
                 SearchBar(searchText: $vm.searchText, searching: $searching)
@@ -65,7 +65,7 @@ extension WelcomeV {
             foreVM.getForecastweather(cityName: vm.searchText)
             vm.searchText = ""
         } label: {
-            Text("welcome_confirm_button_title")
+            Text(L10n.Localizable.welcomeConfirmButtonTitle)
         }
         .padding()
         .background(.white)

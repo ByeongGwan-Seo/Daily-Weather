@@ -6,6 +6,20 @@
   
 */
 
+//UI Image
+"Image.circle" = "circle.fill";
 "Image.globe" = "globe";
-"Image.sun.fill.max" = "sun_fill";
+"Image.person" = "person.fill";
+"Image.humidity" = "humidity";
+"Image.pressure" = "speedometer";
+"Image.wind_speed" = "wind";
+"Image.sunrise" = "sunrise.fill";
+"Image.sunset" = "sunset.fill";
+
+//Weather Image
+"Image.sun_fill_max" = "sun.max.fill";
+"Image.cloud" = "cloud.fill";
+"Image.rain" = "cloud.rain.fill";
+"Image.snow" = "cloud,snow,fill";
+"Image.extreme" = "cloud.bolt.fill";
 

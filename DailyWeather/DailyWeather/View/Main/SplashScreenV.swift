@@ -35,7 +35,7 @@ extension SplashScreenV {
             VStack{
                 Image(systemName: L10n.Resources.Image.globe)
                     .font(.system(size: 80))
-                Text("Daily Weather")
+                Text(L10n.Localizable.splashTitle)
                     .font(.largeTitle)
                     .bold()
                     .padding()
