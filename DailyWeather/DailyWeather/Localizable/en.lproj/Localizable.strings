@@ -15,3 +15,4 @@
 "welcome_confirm_title" = "Please enter the name of the area you want to check";
 "welcome_caution_description" = "※ Please enter the city name in English";
 "welcome_confirm_button_title" = "confirm";
+"forecast_humidity" = "Humidity"

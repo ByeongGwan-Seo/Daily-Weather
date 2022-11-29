@@ -11,10 +11,10 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
   internal enum Localizable {
-    /// English.strings
+    /// Localizable.strings
     ///   DailyWeather
     /// 
-    ///   Created by 金峻聖 on 2022/11/24.
+    ///   Created by snowman on 2022/11/17.
     internal static let badUrlResponseErrorMessage = L10n.tr("Localizable", "bad_url_response_error_message", fallback: "Bad response from URL")
     /// Seoul
     internal static let searchListItem1 = L10n.tr("Localizable", "search_list_item_1", fallback: "Seoul")
@@ -40,6 +40,12 @@ internal enum L10n {
       /// 
       ///   Created by 金峻聖 on 2022/11/24.
       internal static let globe = L10n.tr("Resources", "Image.globe", fallback: "globe")
+      internal enum Sun {
+        internal enum Fill {
+          /// sun_fill
+          internal static let max = L10n.tr("Resources", "Image.sun.fill.max", fallback: "sun_fill")
+        }
+      }
     }
   }
 }
