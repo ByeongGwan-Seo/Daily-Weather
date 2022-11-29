@@ -35,7 +35,7 @@ extension SearchV2 {
     private var listSection:some View {
         VStack(spacing: 10) {
             SearchBar(searchText: $vm.searchText, searching: $searching)
-            Text("検索履歴")
+            Text(L10n.Localizable.searchHistory)
                 .font(.largeTitle)
                 .fontWeight(.bold)
             List {
@@ -64,8 +64,6 @@ extension SearchV2 {
                     .background(Color.white)
                     .cornerRadius(20)
             }
-            
-
         }
     }
 }

@@ -37,22 +37,22 @@ extension CurrentDetailV {
     
     private var detailRowTop: some View {
         HStack(spacing: 25) {
-            CurrenDetailCell(systemName: "person.fill", description: "Feels Like", function: vm.getCurrentFeelTemp(cityName: cityName))
-            CurrenDetailCell(systemName: "humidity", description: "Humidity", function: vm.getCurrentHumidity(cityName: cityName))
+            CurrenDetailCell(systemName: L10n.Resources.Image.person, description: L10n.Localizable.weatherFeelsLike, function: vm.getCurrentFeelTemp(cityName: cityName))
+            CurrenDetailCell(systemName: L10n.Resources.Image.humidity, description: L10n.Localizable.weatherHumidity, function: vm.getCurrentHumidity(cityName: cityName))
         } 
     }
     
     private var detailRowMid: some View {
         HStack(spacing: 25) {
-            CurrenDetailCell(systemName: "speedometer", description: "Atmo. Pressure", function: vm.getCurrentPressure(cityName: cityName))
-            CurrenDetailCell(systemName: "wind", description: "Wind Speed", function: vm.getCurrentWindSpeed(cityName: cityName))
+            CurrenDetailCell(systemName: L10n.Resources.Image.pressure, description: L10n.Localizable.weatherAtmoPress, function: vm.getCurrentPressure(cityName: cityName))
+            CurrenDetailCell(systemName: L10n.Resources.Image.windSpeed, description: L10n.Localizable.weatherWindSpeed, function: vm.getCurrentWindSpeed(cityName: cityName))
         }
     }
     
     private var detailRowBot: some View {
         HStack(spacing: 25) {
-            CurrenDetailCell(systemName: "sunrise.fill", description: "Sunrise", function: vm.getCurrentSunrise(cityName: cityName))
-            CurrenDetailCell(systemName: "sunset.fill", description: "Sunset", function: vm.getCurrentSunset(cityName: cityName))
+            CurrenDetailCell(systemName: L10n.Resources.Image.sunrise, description: L10n.Localizable.weatherSunRise, function: vm.getCurrentSunrise(cityName: cityName))
+            CurrenDetailCell(systemName: L10n.Resources.Image.sunset, description: L10n.Localizable.weatherSunSet, function: vm.getCurrentSunset(cityName: cityName))
         }
     }
 }

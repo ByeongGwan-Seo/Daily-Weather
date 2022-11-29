@@ -92,18 +92,17 @@ final class ForeCastViewModel: ObservableObject {
     func weatherImage(mainDesc: String) -> Image {
         switch mainDesc {
         case "Clear":
-            return Image(systemName: "sun.max.fill")
+            return Image(systemName: L10n.Resources.Image.sunFillMax)
         case "Clouds":
-            return Image(systemName: "cloud.fill")
+            return Image(systemName: L10n.Resources.Image.cloud)
         case "Rain":
-            return Image(systemName: "cloud.rain.fill")
+            return Image(systemName: L10n.Resources.Image.rain)
         case "Snow":
-            return Image(systemName: "cloud.snow.fill")
+            return Image(systemName: L10n.Resources.Image.snow)
         case "Extreme":
-            return Image(systemName: "cloud.bolt.fill")
+            return Image(systemName: L10n.Resources.Image.extreme)
         default:
-            return Image(systemName: "sun.max.fill")
-            
+            return Image(systemName: L10n.Resources.Image.sunFillMax)
         }
     }
     

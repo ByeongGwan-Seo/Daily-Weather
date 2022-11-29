@@ -14,7 +14,7 @@ struct SearchListRowV: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "circle.fill")
+            Image(systemName: L10n.Resources.Image.circle)
                 .font(.caption)
             Text(item.title)
             Spacer()

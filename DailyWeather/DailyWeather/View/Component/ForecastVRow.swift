@@ -68,17 +68,17 @@ extension ForecastVRow {
     private var bottomRow: some View {
         HStack {
             VStack(spacing: 10) {
-                Text("湿度")
+                Text(L10n.Localizable.weatherHumidity)
                 Text(vm.getForecastHumidity(index: index))
             }
             Spacer()
             VStack(spacing: 10) {
-                Text("体感温度")
+                Text(L10n.Localizable.weatherFeelsLike)
                 Text(vm.getForecastFeelsLike(index: index))
             }
             Spacer()
             VStack(spacing: 10) {
-                Text("風速")
+                Text(L10n.Localizable.weatherWindSpeed)
                 Text(vm.getForecastWindSpeed(index: index))
             }
         }
