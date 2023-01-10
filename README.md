@@ -1,45 +1,45 @@
 # Daily-Weather
    
-## 1.機能説明
-利用者が入力した地域の天気を確認できるアプリケーションです。
+## 1.プロジェクト概要
+研修で学んだ内容の実習及び、先輩社員との協業を通じて実務感覚も身につけるため、当プロジェクトを始めました。
 ### 1-1. 特徴   
-<img width="200" alt="스크린샷 2022-11-15 15 23 10" src="https://user-images.githubusercontent.com/109661308/201843685-8e56a194-7d0d-4138-b77c-ee496badbca5.png">　　　
+<img width="200" alt="스크린샷 2022-11-15 15 23 10" src="https://user-images.githubusercontent.com/109661308/211483736-39fe1e60-165e-440b-886f-a3b96ec1033d.png">　　　
 
 一つの画面に示される情報を簡略化し、別のスワイプジェスチャーなしで情報を確認できます。
-Today, Forecastタブにて現在と予報を別の画面で確認できて、Searchタブにて他に確認したい地域の情報が確認できます。
-（詳細UIはまだ作業中です。）　　　
+Today, Forecastタブにて現在と予報を別の画面で確認できて、Searchタブにて他に確認したい地域の情報が確認できます。　　　
 
-## 2. 項目説明　　　
-### 2-1. SplashとWelcome Screen   
+## 2. プロジェクトのアイディア
+    a. ユーザーが確認したい地域の天気情報がすぐに確認できるようにシンプルなUI構成。
+    b. 表示される天気の情報をテキストと共に、アイコンと背景を通じてわかるように。
+    c. OpenWeather APIを活用、気温、天気はもちろん、風速から気圧、日出と日没時間まで確認できるように。
+
+## 3. 開発環境及び、開発ツール
+    a. XCode (ver. 13 ~ 14) with SwiftUI
+    b. OpenWeather API
+    c. Swiftgen
+    d. git & github with Github Desktop application
+    
+## 4. 項目説明　　　
+### 4-1. SplashとWelcome Screen   
 <img width="200" alt="스크린샷 2022-11-15 15 22 18" src="https://user-images.githubusercontent.com/109661308/201843535-5cd76bfa-ccfe-422d-9afa-5a681bfa01bd.png"> <img width="200" alt="스크린샷 2022-11-15 15 22 25" src="https://user-images.githubusercontent.com/109661308/201844987-12880901-c533-4fde-ac9a-53084802d3d8.png">　　　
 
 アプリケーションを起動すると簡単なアニメーション効果とWelcomeスクリンが示されます。Welcomeスクリンで利用者が入力した地域の天気情報が次のCurrentWeatherスクリンに反映されます。   
 
-### 2-2. CurrentWeather   
-<img width="200" alt="스크린샷 2022-11-15 15 23 10" src="https://user-images.githubusercontent.com/109661308/201849440-8d0776b5-8287-4122-8329-5aae23c97787.png"><img width="200" alt="스크린샷 2022-11-15 15 23 25" src="https://user-images.githubusercontent.com/109661308/201849553-c2aa30d7-936d-49e3-a1ed-f90d9320bcd0.png"><img width="200" alt="스크린샷 2022-11-15 15 44 40" src="https://user-images.githubusercontent.com/109661308/201849641-ebe04048-f7ce-45b2-9b54-120cdc1108b7.png"><img width="200" alt="스크린샷 2022-11-15 15 50 14" src="https://user-images.githubusercontent.com/109661308/201849741-1cd8f1e4-97cf-46d8-a530-5285f850881b.png">   
+### 4-2. CurrentWeather   
+<img width="200" alt="스크린샷 2022-11-15 15 23 10" src="https://user-images.githubusercontent.com/109661308/211485799-db19008c-c4dd-4bd0-ae5e-84fa4fd7af13.png">　<img width="200" alt="스크린샷 2022-11-15 15 23 25" src="https://user-images.githubusercontent.com/109661308/211485072-2b8b2e22-e426-405a-b637-1a857f5d3c00.png">  
 
-利用者が入力した地域の天気情報を示すスクリンです。各地域の天気によって背景色が変わる機能が実装されています。
-現在詳細情報やUIは作業中です。
+利用者が入力した地域の天気情報を表示する画面です。各地域の天気によって背景色が変わる機能が実装されています。
 
-### 2-3. Forecast(作業予定）
-<img width="200" alt="스크린샷 2022-11-15 15 23 54" src="https://user-images.githubusercontent.com/109661308/201851618-9cfd7a93-5c85-4247-b6eb-1d5c261c56cd.png">
-Forecastは現在Currentに反映されている地域の天気予報が示されるスクリンです。
+### 4-3. Forecast
+<img width="200" alt="스크린샷 2022-11-15 15 23 54" src="https://user-images.githubusercontent.com/109661308/211485408-cd9baf8a-bdc3-4a43-9ca6-0884e91d0b6f.png">　<img width="200" alt="스크린샷 2022-11-15 15 23 54" src="https://user-images.githubusercontent.com/109661308/211485440-01f42ee8-b62f-47d6-9923-279f3927c3d5.png">　　
 
-### 2-4. Search(作業中)   
-<img width="200" alt="스크린샷 2022-11-15 15 24 02" src="https://user-images.githubusercontent.com/109661308/201853814-71cec1e3-7f76-47c0-a551-b79c44e7c322.png">
-利用者が他の地域の情報を確認したいときに使えるスクリンです。現在は利用者が入力した地域名がCurrentWeatherに反映されるように作業中です。
+Forecastは現在Currentに反映されている地域の天気予報が表示される画面です。
 
-## 3. 現在目標
-(22.11.15 基準)
-1. ~SearchVで利用者が入力した地域名をCurrentWeatherに反映させること~   
-2. ~SearchVで利用者が入力した情報を画面のリストにセーブすること（UserDefaultか@AppStorage活用予定）~
-3. ForecastデータをForecast ビューに反映させること
-4. ネットワーク上で例外処理できるようにすること
-5. Currentの詳細情報をGridで示すこと
+### 4-4. Search   
+<img width="200" alt="스크린샷 2022-11-15 15 24 02" src="https://user-images.githubusercontent.com/109661308/211486955-67b47e7e-4c70-4167-9189-84d4ab648bc2.png">
+利用者が他の地域の情報を確認したいときに使う画面です。検索履歴は画面の真ん中にリストとしてセーブされ、アプリケーションを再起動してもその履歴は残ります。
 
-(22.11.16)
-1. 利用者の検索履歴がアプリケーション再起動後にも維持できるようにUserDefaultや＠AppStorage活用
-2. SearchVの検索履歴リストでCurrentを変更できるように調整
-3. ForecastデータをForecast ビューに反映させること
-4. ネットワーク上で例外処理できるようにすること
-5. Currentの詳細情報をGridで示すこと 
+## 5. Swiftgenを活用した内部テキスト管理
+<img width="200" alt="스크린샷 2023-01-10 16 23 50" src="https://user-images.githubusercontent.com/109661308/211487758-5294e49b-e6ec-4de9-b827-bfd3bb89b9ca.png">  
+アプリケーションの内部テキストは全てSwiftgenを活用して管理し、作業中に発生する可能性があるテキスト誤代入問題を予防しようとするともに、利用者の機器設定によって英語と日本語でテキストが表示されます。
+
